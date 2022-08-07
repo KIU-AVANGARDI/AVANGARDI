@@ -1,9 +1,12 @@
 import '../styles/Homepage.css'
-import {useEffect} from "react";
+import {useEffect,useState} from "react";
 import APIService from "../APIService";
 import ProductItem from "../components/ProductItem";
 
-export const HomePage = ({materials, setMaterials, kitchen, setKitchen}) => {
+export const HomePage = () => {
+
+    const [materials, setMaterials] = useState([])
+    const [kitchen, setKitchen] = useState([])
 
     useEffect(() => {
         APIService.GetAllMaterials().then((resp) => {
@@ -20,16 +23,20 @@ export const HomePage = ({materials, setMaterials, kitchen, setKitchen}) => {
     return (
         <div className="homepage">
             <div className="product-list">
-                <h3>Materials</h3>
-                {materials.map((p) => (
-                    <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price}/>
-                ))}
+                <h2>Materials</h2>
+                <div className="products">
+                    {materials.map((p) => (
+                        <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price_square_meter}/>
+                    ))}
+                </div>
             </div>
             <div className="product-list">
-                <h3>Kitchen</h3>
-                {kitchen.map((p) => (
-                    <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price}/>
-                ))}
+                <h2>Kitchen</h2>
+                <div className="products">
+                    {kitchen.map((p) => (
+                        <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price}/>
+                    ))}
+                </div>
             </div>
         </div>
     )
