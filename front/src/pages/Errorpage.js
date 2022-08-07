@@ -1,0 +1,1 @@
+import '../styles/Errorpage.css'
