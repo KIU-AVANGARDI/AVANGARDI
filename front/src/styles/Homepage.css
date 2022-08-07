@@ -1,0 +1,15 @@
+.product-list {
+    float: left;
+    width: 40%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    height: auto;
+    margin: 2%;
+    border: #0b0b0b 1px solid;
+}
+
+.homepage {
+    width: 90%;
+    margin: 0 auto;
+}
