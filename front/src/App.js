@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import APIService from "./APIService";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {HomePage} from "./pages/Homepage";
+import {ErrorPage} from "./pages/Errorpage";
 
 function App() {
 
@@ -27,7 +28,8 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Routes>
-                    <Route path="" element={<HomePage materials={materials} setMaterials={setMaterials} kitchen={kitchen} setKitchen={setKitchen}/>}/>
+                    <Route path="/" element={<HomePage materials={materials} setMaterials={setMaterials} kitchen={kitchen} setKitchen={setKitchen}/>}/>
+                    <Route path="*" element={<ErrorPage/>} />
                 </Routes>
                 <Footer/>
             </div>
