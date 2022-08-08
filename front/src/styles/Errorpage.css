@@ -185,6 +185,7 @@ a.error-page {
     padding: 1.2rem 3rem;
     color: white;
     background-color: #d8994d;
+    border-radius: 8px;
     transition: 0.2s ease-in-out ;
 }
 
