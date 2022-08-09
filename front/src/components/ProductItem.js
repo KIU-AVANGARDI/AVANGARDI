@@ -16,9 +16,9 @@ const ProductItem = ({id, name, img, price}) => {
             <div className="gallery">
                 <div className="content">
                     <img src={img} alt="Photo"/>
-                    <h3>{name}</h3>
-                    <h6>{price} ₾</h6>
-                    <button className="buy-1" onClick={showDetailsBtnClicked}>Show Details</button>
+                    <p className="card-name">{name}</p>
+                    <p className="card-price">{price} ₾</p>
+                    <button className="buy-1" onClick={showDetailsBtnClicked}> დაწვრილებით </button>
                 </div>
             </div>
         </div>
