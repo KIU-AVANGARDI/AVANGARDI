@@ -1,8 +1,9 @@
 nav{
-    background: #fcf3ec;
-    height: 100px;
+    background: #faf3ed;
+
     width: 100%;
     display: flex;
+    /*box-shadow: 0 0 13px rgba(0, 0, 0, 0.16);*/
 }
 
 .logo-container{
@@ -16,7 +17,30 @@ nav{
     object-fit: cover;
 }
 
+.login{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    height: 40px;
+    width: 80px;
+    cursor: pointer;
+    background: transparent;
+    font-family: gilory;
+    color: #67686a;
+    border: 2px solid #67686a;
+    border-radius: 4px;
+    transition: color 0.5s;
+    font-size: 16px;
+}
+
+.login:hover{
+    color: white;
+    background: #d8a975;
+    border: 2px solid transparent;
+}
+
 .links ul{
+    padding: 0;
     margin: 0;
     height: 100%;
     display: flex;
@@ -31,19 +55,20 @@ nav{
 }
 
 .links a{
+    font-weight: 700;
     display: block;
     padding-bottom: 5px;
-    color: #585859;
+    color: #67686a;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 20px;
-    transition: all 0.25s;
+    transition: color 0.25s;
     border-bottom: 2px solid transparent;
 }
 
 .links a:hover{
-    color: #ff9f43;
-    border-bottom: 2px solid #ff9f43;
+    color: #e29f4f;
+    border-bottom: 2px solid #e29f4f;
 }
 
 .hamburger {
@@ -91,16 +116,64 @@ nav{
 
 
 @media(max-width:900px) {
-    .hamburger {
-        display: block;
+    .links li{
+        padding: 0 15px 0 15px;
     }
 
-    nav {
-        /*height: 80px;*/
+    .logo-container{
+        width: 200px;
+    }
+    .logo-container img {
+        width: 200px;
     }
 
-    .nav-buttons {
-        display: none;
+    .links a{
+        font-size: 15px;
+    }
+
+    .login{
+        height: 35px;
+        width: 60px;
+        font-size: 14px;
     }
 }
 
+@media (max-width: 620px) {
+    .hamburger {
+        display: block;
+    }
+    nav{
+        flex-direction: column;
+    }
+    .links{
+        display: none;
+    }
+    .links ul {
+        flex-direction: column;
+    }
+    .links li {
+        margin-bottom: 10px;
+    }
+    .login{
+        position: relative;
+        top: initial;
+        right: initial;
+    }
+    .login-button{
+        display: none;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hamburger span {
+        width: 30px;
+        height: 3px;
+    }
+    .hamburger.is-active span:nth-child(1){
+        transform: translate(3px,0px) rotate(45deg);
+    }
+    .hamburger.is-active span:nth-child(3){
+        transform: translate(1px,5px) rotate(-45deg);
+    }
+}

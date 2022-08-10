@@ -13,14 +13,12 @@ const ProductItem = ({id, name, img, price}) => {
 
     return (
         <div className="card-wrapper">
-            <div className="gallery">
-                <div className="content">
-                    <img src={img} alt="Photo"/>
-                    <p className="card-name">{name}</p>
-                    <p className="card-price">{price} ₾</p>
-                    <button className="buy-1" onClick={showDetailsBtnClicked}> დაწვრილებით </button>
-                </div>
+            <div className="product-image">
+                <img src={img} alt="Photo"/>
             </div>
+            <p className="card-name" >{name}</p>
+            <p className="card-price">{price} ₾</p>
+            <button className="details" onClick={showDetailsBtnClicked}> დაწვრილებით </button>
         </div>
     );
 };
