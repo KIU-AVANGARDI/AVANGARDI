@@ -11,6 +11,7 @@
     flex-direction: column;
     margin: 1%;
     font-family: gilory;
+    text-transform: uppercase;
     background-color: #faf3ed;
     border-radius: 20px;
     box-shadow: 0 0 16px rgba(216, 169, 117, 0.59);

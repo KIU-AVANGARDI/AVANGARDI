@@ -11,7 +11,7 @@
     margin: 0 10px 40px 10px;
     padding-top: 10px;
     width: 220px;
-    height: 396px;
+    height: 410px;
     border-radius: 10px;
     box-shadow: 0 0 13px rgba(0, 0, 0, 0.16);
     transition: .4s;
@@ -38,7 +38,8 @@
 .card-name{
     font-family: 'gilory', sans-serif;
     width: 100%;
-    height: 40px;
+    height: 55px;
+    padding: 5px 5px 0 5px;
     text-align: center;
     font-size: 14px;
 }
@@ -51,6 +52,7 @@
     padding-bottom: 5px;
     margin: 0;
     letter-spacing: 1px;
+
 }
 
 .details{
@@ -87,7 +89,7 @@
     }
     .card-wrapper{
         width: 170px;
-        height: 310px;
+        height: 323px;
     }
     .details{
         padding: 10px;
@@ -97,7 +99,9 @@
         font-size: 24px;
     }
     .card-name{
-        font-size: 11px;
+        height: 40px;
+        font-size: 12px;
+        padding: 5px 5px 0 5px;
     }
 }
 
@@ -113,16 +117,17 @@
     }
     .card-wrapper{
         width: 120px;
-        height: 263px;
+        height: 253px;
     }
     .details{
         padding: 8px;
-        font-size: 15px;
+        font-size: 13px;
     }
     .card-price{
-        font-size: 20px;
+        font-size: 18px;
     }
     .card-name{
-        font-size: 9px;
+        font-size: 8px;
+        padding: 5px 5px 0 5px;
     }
 }
