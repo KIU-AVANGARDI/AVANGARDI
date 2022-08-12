@@ -15,14 +15,14 @@ export default function Navbar (props){
                 display: opened ? 'block' : 'none'
             }}>
                 <ul>
-                    <li><a href="#">home</a></li>
-                    <li><a href="#">shop</a></li>
-                    <li><a href="#">jobs</a></li>
-                    <li><a href="#">about us</a></li>
+                    <li><a href="#">მთავარი</a></li>
+                    <li><a href="#">მაღაზია</a></li>
+                    <li><a href="#">ვაკანსია</a></li>
+                    <li><a href="#">ჩვენს შესახებ</a></li>
                 </ul>
             </div>
             <div className="login-button" style={{
-                display: opened ? 'block' : 'none'
+                display: opened ? 'flex' : 'none'
             }}>
                 <button className="login">Log in</button>
             </div>
