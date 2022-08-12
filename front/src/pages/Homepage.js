@@ -22,10 +22,10 @@ export const HomePage = () => {
     }, [])
 
     return (
-        <>
+        <div className="homepage">
             <CarouselC/>
             {/*<button className="carousel-button">see our projects</button>*/}
-            <div className="homepage">
+            <div className="lists">
                 <div className="product-list">
                     <h2>ზედაპირები</h2>
                     <div className="products">
@@ -43,6 +43,6 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
