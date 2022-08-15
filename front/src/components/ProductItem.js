@@ -4,11 +4,11 @@ import React from 'react';
 
 
 
-const ProductItem = ({id, name, img, price}) => {
+const ProductItem = ({id, name, img, price, type}) => {
 
     let navigate = useNavigate();
     function showDetailsBtnClicked() {
-        navigate(`/products/${id}`)
+        navigate(`/products/${type}/${id}`)
     }
 
     return (
