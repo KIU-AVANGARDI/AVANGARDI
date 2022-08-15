@@ -1,0 +1,148 @@
+.single-item-box {
+    font-family: gilory;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    margin: 100px auto;
+    max-width: 750px;
+}
+
+.single-main-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.single-main-box * {
+    border-radius: 12px;
+    margin: 6px;
+    min-width: 0;
+}
+
+.single-half {
+    /*border: 1px solid black;*/
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.single-title {
+    /*border: 2px solid #2e3440;*/
+    flex: 66.6%;
+    display: table;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-buttons {
+    padding: 8px;
+    margin: 0;
+    flex: 33.3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.single-title h2 {
+    text-align: center;
+    font-size: 32px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.single-buttons * {
+    cursor: pointer;
+    margin: 4px 0;
+    border: none;
+    padding: 6px;
+    border-radius: 8px;
+    transition: .4s;
+    color: #ebebeb;
+    font-weight: 700;
+    font-size: 22px;
+    flex: 50%;
+}
+
+#single-price {
+    background: #67686a;
+}
+
+#single-cart {
+    background-color: #e29f4f;
+}
+
+.single-buttons *:focus {
+    outline: none;
+}
+
+#single-cart:hover, #single-price:hover {
+    background-color: #eec199;
+    color: #67686a;
+}
+
+
+.single-main-box img {
+    width: 320px;
+    height: 240px;
+    margin: auto 0;
+    border-radius: 10%;
+    display: block;
+    padding: 4px;
+    transition: .4s;
+    border: 2px solid #eec199;
+}
+
+.single-main-box img:hover {
+    border: 2px solid #e59330;
+}
+.additional-info{
+    padding: 8px;
+    /*border: 1px dotted #eec199;*/
+    text-align: left;
+    border-radius: 12px;
+    margin: 10px 0;
+
+}
+
+.single-description {
+    padding: 8px;
+    min-width: 350px;
+    max-width: 750px;
+    border-radius: 12px;
+    font-size: 14px;
+    border: 1px dotted #eec199;
+    margin: 10px 0;
+    flex: 100%;
+    display: block;
+    text-align: left;
+}
+
+.single-item-box ul {
+    margin: 16px auto;
+}
+
+.single-item-box li {
+    display: inline;
+    margin: 4px 8px;
+    font-size: 18px;
+    background: #e29f4f;
+    cursor: pointer;
+    font-weight: 600;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: .4s;
+}
+
+.single-item-box li:hover {
+    background: #e59330;
+}
+
+@media (max-width: 630px) {
+    .single-main-box {
+        flex-direction: column;
+    }
+
+    .single-main-box img {
+        margin: auto;
+    }
+}
