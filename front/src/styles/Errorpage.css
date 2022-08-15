@@ -1,5 +1,5 @@
 .error-page {
-    margin-top: 12%;
+    margin: 4% 0 4% 0;
 }
 
 html.error-page,
@@ -187,6 +187,7 @@ a.error-page {
     background-color: #d8994d;
     border-radius: 8px;
     transition: 0.2s ease-in-out ;
+    text-decoration: none;
 }
 
 .error-button:hover {

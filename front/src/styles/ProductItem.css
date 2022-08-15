@@ -6,52 +6,42 @@
 }
 
 .card-wrapper{
-    font-family: 'Fira Sans', sans-serif;
-    color: #4c4c4d;
-    margin-bottom: 40px;
-}
-
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    /*margin: 50px 0;*/
-
-}
-.content{
-    box-sizing: border-box;
-    float: left;
-    text-align: center;
-    border-radius:10px;
+    font-family: 'gilory', sans-serif;
+    color: #67686a;
+    margin: 0 10px 40px 10px;
     padding-top: 10px;
+    width: 220px;
+    height: 410px;
+    border-radius: 10px;
     box-shadow: 0 0 13px rgba(0, 0, 0, 0.16);
     transition: .4s;
     background-color: white;
 }
-.content:hover{
+
+.card-wrapper:hover{
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.42);
     transform: translate(0px, -8px);
     transition: .6s;
 }
-.content img{
-    width: 200px;
-    height: 200px;
+
+.product-image{
+    width: 220px;
+    height: 220px;
+}
+
+.product-image img{
+    width: 220px;
+    height: 220px;
     object-fit: cover;
-    text-align: center;
-    margin: 0 auto;
-    display: block;
 }
 
 .card-name{
     font-family: 'gilory', sans-serif;
-    width: 200px;
-    height: 50px;
+    width: 100%;
+    height: 55px;
+    padding: 5px 5px 0 5px;
     text-align: center;
-    font-size: 15px;
-    margin: 0;
-    padding-top: 10px;
+    font-size: 14px;
 }
 
 .card-price{
@@ -59,10 +49,13 @@
     font-size: 26px;
     text-align: center;
     color: #e29f4f;
+    padding-bottom: 5px;
     margin: 0;
+    letter-spacing: 1px;
+
 }
 
-button.buy-1{
+.details{
     font-family: 'gilory', sans-serif;
     text-align: center;
     font-size: 24px;
@@ -72,31 +65,69 @@ button.buy-1{
     border:0;
     outline: none;
     cursor: pointer;
-    margin-top: 5px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-}
-.buy-1{
+    letter-spacing: 1px;
     background-color: #d8a975;
+    transition: all 0.25s;
 }
 
-.fa{
-    color: #ff9f43;
-    font-size: 26px;
-    transition: .4s;
-}
-.fa:hover{
-    transform: scale(1.3);
-    transition: .6s;
+.details:hover{
+    color: #4c4c4d;
+    background-color: #e19f4e;
 }
 
-/*@media(max-width: 1000px){*/
-/*    .content{*/
-/*        width: 46%;*/
-/*    }*/
-/*}*/
-/*@media(max-width: 750px){*/
-/*    .content{*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
+@media (max-width: 620px) {
+    .product-image{
+        width: 170px;
+        height: 170px;
+    }
+    .product-image img{
+        width: 170px;
+        height: 170px;
+        object-fit: cover;
+    }
+    .card-wrapper{
+        width: 170px;
+        height: 323px;
+    }
+    .details{
+        padding: 10px;
+        font-size: 18px;
+    }
+    .card-price{
+        font-size: 24px;
+    }
+    .card-name{
+        height: 40px;
+        font-size: 12px;
+        padding: 5px 5px 0 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .product-image{
+        width: 120px;
+        height: 120px;
+    }
+    .product-image img{
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+    }
+    .card-wrapper{
+        width: 120px;
+        height: 253px;
+    }
+    .details{
+        padding: 8px;
+        font-size: 13px;
+    }
+    .card-price{
+        font-size: 18px;
+    }
+    .card-name{
+        font-size: 8px;
+        padding: 5px 5px 0 5px;
+    }
+}
