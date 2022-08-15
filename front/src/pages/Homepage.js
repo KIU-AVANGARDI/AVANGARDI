@@ -26,7 +26,7 @@ export const HomePage = () => {
                 <h2>Materials</h2>
                 <div className="products">
                     {materials.map((p) => (
-                        <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price_square_meter}/>
+                        <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price_square_meter} type = "material"/>
                     ))}
                 </div>
             </div>
@@ -34,7 +34,7 @@ export const HomePage = () => {
                 <h2>Kitchen</h2>
                 <div className="products">
                     {kitchen.map((p) => (
-                        <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price}/>
+                        <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price} type = "kitchen"/>
                     ))}
                 </div>
             </div>
