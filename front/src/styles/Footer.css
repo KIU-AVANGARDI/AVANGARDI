@@ -2,6 +2,8 @@
     padding-top: 30px;
     background-color: #f1e2d4;
     font-family: gilory;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .row{
@@ -29,7 +31,7 @@
 .footer-container p, .footer-container a{
     margin: 20px;
     line-height: 0;
-    text-transform: initial;
+    /*text-transform: initial;*/
 }
 .sub-footer{
     font-family: gilory;
@@ -48,10 +50,10 @@
 }
 
 .footer-container li {
-    list-style-position:inside;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /*list-style-position:inside;*/
+    /*white-space: nowrap;*/
+
+
 }
 
 

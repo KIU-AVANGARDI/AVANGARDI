@@ -40,6 +40,11 @@ nav{
     border: 2px solid transparent;
 }
 
+.links-cont{
+    display: flex;
+    align-items: center;
+}
+
 .links{
     margin-left: 50px;
 }
@@ -122,10 +127,6 @@ nav{
 
 
 @media(max-width:1000px) {
-    /*.links li{*/
-    /*    padding: 0 15px 0 15px;*/
-    /*}*/
-
     .logo-container{
         width: 200px;
     }
@@ -148,11 +149,25 @@ nav{
     .hamburger {
         display: block;
     }
+    .links-cont{
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        background-color: inherit;
+        transform: translateX(-100%);
+        transition: transform 1s;
+    }
+    .show-nav{
+        transform: none;
+    }
     nav{
         flex-direction: column;
     }
     .links{
-        display: none;
         margin-left: 0;
     }
     .links ul {
@@ -167,7 +182,6 @@ nav{
         right: initial;
     }
     .login-button{
-        display: none;
         justify-content: center;
         padding-bottom: 20px;
     }
