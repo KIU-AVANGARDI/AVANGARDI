@@ -1,0 +1,97 @@
+.forgot-wrapper{
+    width: 100%;
+    height: 500px;
+    background: url("../assets/images/pattern.svg");
+    display: flex;
+    justify-content: center;
+    font-family: gilory;
+    color: #4c4c4d;
+}
+
+.forgot-wrapper form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    height: 300px;
+    border-radius: 15px;
+    background: #faf3ed;
+    margin-top: 50px;
+    padding: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0 8px 16px -8px;}
+
+.forgot-wrapper input{
+    width: 350px;
+    height: 45px;
+    border: #666769 2px solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: inherit;
+    outline: none;
+}
+
+.forgot-wrapper input:focus{
+    border: #e29f4f 2px solid;
+}
+
+.forgot-wrapper h2{
+    width: 100%;
+    text-align: left;
+}
+
+.forgot-wrapper hr{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.forgot-wrapper button{
+    border-radius: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    width: 350px;
+    height: 45px;
+    padding: 6px 13px 6px 13px;
+    margin-bottom: 30px;
+    text-align: center;
+    background: #d8a975;
+    border: none;
+    color: #fff;
+    transition: 0.25s;
+
+}
+
+.forgot-wrapper button:hover{
+    background: #e19f4e;
+    color: #4c4c4d;
+}
+
+
+
+@media (max-width: 750px) {
+    .forgot-wrapper form{
+        width: 400px;
+    }
+}
+
+@media (max-width: 450px) {
+    .forgot-wrapper{
+        height: 400px;
+    }
+    .forgot-wrapper form{
+        width: 250px;
+        height: 280px;
+    }
+    .forgot-wrapper input {
+        width: 200px;
+        height: 35px;
+        font-size: 13px;
+    }
+    .forgot-wrapper h2{
+        font-size: 20px;
+    }
+    .forgot-wrapper button{
+        width: 200px;
+        height: 35px;
+        font-size: 15px;
+    }
+}

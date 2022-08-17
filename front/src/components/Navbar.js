@@ -1,10 +1,13 @@
 import React, {useRef, useState} from "react"
-import logo from "../logo.svg"
+import logo from "../logo1.svg"
+import {faArrowRightToBracket} from "@fortawesome/free-solid-svg-icons"
 import "../styles/Navbar.css"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 export default function Navbar (props){
     const [opened,setOpened] = useState(false)
+    const [loginActive,setLoginActive] = useState(false)
     const navRef = useRef()
     function showLinks(){
         navRef.current.classList.toggle("show-nav")
@@ -13,7 +16,7 @@ export default function Navbar (props){
     return(
         <nav >
             <div className="logo-container">
-                <img src={logo} alt={"logo"}/>
+                <a href="/"><img src={logo} alt={"logo"}/></a>
             </div>
             <div  ref={navRef} className="links-cont">
                 <div className="links">
@@ -24,9 +27,22 @@ export default function Navbar (props){
                         <li><a href="#">ჩვენს შესახებ</a></li>
                     </ul>
                 </div>
-                <div className="login-button">
-                    <button className="login">Log in</button>
+
+                <div className="login-wrapper">
+                    <div className="login-button">
+                        <button className="login" onClick={
+                            ()=>{
+                                setLoginActive(!loginActive)
+                            }
+                        }><FontAwesomeIcon icon={faArrowRightToBracket}/> &nbsp;&nbsp;შესვლა</button>
+                    </div>
+                    <div className={loginActive?"login-dropdown active-login":"login-dropdown"}>
+                        <a href="/authorization"><p>ავტორიზაცია</p></a>
+                        <hr/>
+                        <a href="/registration"><p>რეგისტრაცია</p></a>
+                    </div>
                 </div>
+
             </div>
 
             <div className={opened?'hamburger is-active':'hamburger'}

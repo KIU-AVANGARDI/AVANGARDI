@@ -18,12 +18,20 @@ nav{
     object-fit: cover;
 }
 
-.login{
+.login-wrapper{
+    z-index: 1;
     position: absolute;
     right: 30px;
-    top: 30px;
-    height: 40px;
-    width: 80px;
+    top: 25px;
+}
+
+.login{
+    /*position: absolute;*/
+    /*right: 40px;*/
+    /*top: 25px;*/
+    height: 50px;
+    width: 100px;
+    margin-bottom: 5px;
     cursor: pointer;
     background: transparent;
     font-family: gilory;
@@ -40,9 +48,55 @@ nav{
     border: 2px solid transparent;
 }
 
+.login-dropdown{
+    background: #faf3ed;
+    border: 1px solid #67686a;
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    border-radius: 4px;
+    font-family: gilory;
+    font-size: 13px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    opacity: 0;
+    transform: translate(30px,0px);
+    transition: all 0.5s;
+}
+
+.active-login{
+    opacity: 1;
+    transform: translate(0px,0px);
+}
+
+.login-dropdown a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.login-dropdown p{
+    height: 20px;
+    margin: 3px;
+    color: #67686a;
+    transition: 0.25s;
+}
+
+.login-dropdown hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.login-dropdown p:hover{
+    cursor: pointer;
+    color: #d8a975;
+}
+
 .links-cont{
+    z-index: 1;
     display: flex;
     align-items: center;
+    border-radius:  0 0 10px 0;
 }
 
 .links{
@@ -71,7 +125,7 @@ nav{
     color: #67686a;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     font-family: gilory;
     transition: color 0.25s;
     border-bottom: 2px solid transparent;
@@ -126,7 +180,7 @@ nav{
 }
 
 
-@media(max-width:1000px) {
+@media(max-width:1050px) {
     .logo-container{
         width: 200px;
     }
@@ -139,13 +193,17 @@ nav{
     }
 
     .login{
-        height: 35px;
-        width: 60px;
-        font-size: 14px;
+        height: 40px;
+        width: 85px;
+        font-size: 13px;
+    }
+    .login-dropdown{
+        width: 120px;
+        font-size: 11px;
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 850px) {
     .hamburger {
         display: block;
     }
@@ -153,10 +211,9 @@ nav{
         flex-direction: column;
         justify-content: center;
         position: absolute;
-        top: 100px;
+        top: 99px;
         left: 0;
         width: 100%;
-        z-index: 100;
         background-color: inherit;
         transform: translateX(-100%);
         transition: transform 1s;
@@ -176,14 +233,15 @@ nav{
     .links li {
         margin-bottom: 10px;
     }
-    .login{
+    .login-wrapper{
         position: relative;
         top: initial;
         right: initial;
+        margin-bottom: 20px;
     }
     .login-button{
         justify-content: center;
-        padding-bottom: 20px;
+        /*padding-bottom: 20px;*/
     }
 }
 
