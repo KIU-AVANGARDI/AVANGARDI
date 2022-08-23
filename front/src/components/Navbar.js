@@ -52,9 +52,9 @@ export default function Navbar (props){
                         }><FontAwesomeIcon icon={faArrowRightToBracket}/> &nbsp;&nbsp;შესვლა</button>
                     </div>
                     <div className={loginActive?"login-dropdown active-login":"login-dropdown"}>
-                        <a href="/authorization"><p>ავტორიზაცია</p></a>
+                        <a style={!loginActive?{pointerEvents:"none"}:{}} href="/authorization"><p>ავტორიზაცია</p></a>
                         <hr/>
-                        <a href="/registration"><p>რეგისტრაცია</p></a>
+                        <a style={!loginActive?{pointerEvents:"none"}:{}} href="/registration"><p>რეგისტრაცია</p></a>
                     </div>
                 </div>
 
