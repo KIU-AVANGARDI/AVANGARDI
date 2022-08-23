@@ -9,8 +9,9 @@
 }
 
 .carousel{
+    z-index: 0;
     width: 90%;
-    /*box-shadow: 0 7px 16px -1px rgba(0, 0, 0, 0.47);*/
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.16);
 }
 
 @media (max-width: 620px) {

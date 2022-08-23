@@ -1,6 +1,6 @@
 .footer-container{
     padding-top: 30px;
-    background-color: #f1e2d4;
+    background-color: #eee4da;
     font-family: gilory;
     width: 100%;
     overflow-x: hidden;
@@ -95,8 +95,8 @@
     background-color: #4267B2;
 }
 
-#tw:hover{
-    background-color: #1DA1F2;
+#li:hover{
+    background-color: #0072b1;
 }
 
 .social-media .social-icon{
