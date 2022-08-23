@@ -9,9 +9,24 @@ export default function Navbar (props){
     const [opened,setOpened] = useState(false)
     const [loginActive,setLoginActive] = useState(false)
     const navRef = useRef()
+
     function showLinks(){
         navRef.current.classList.toggle("show-nav")
     }
+
+    useState(()=>{
+        //handles particularly login dropdown
+        function handleClickOutside(e){
+            //get clicked element classnames
+            let classes = []
+            e.path.forEach((x)=>{classes.push(x.className)})
+
+            if(!classes.includes("login-wrapper")) {
+                setLoginActive(false)
+            }
+        }
+        document.body.addEventListener("click",handleClickOutside)
+    })
 
     return(
         <nav >
@@ -23,8 +38,8 @@ export default function Navbar (props){
                     <ul>
                         <li><a href="/">მთავარი</a></li>
                         <li><a href="#">მაღაზია</a></li>
-                        <li><a href="#">ვაკანსია</a></li>
-                        <li><a href="#">ჩვენს შესახებ</a></li>
+                        <li><a href="/Vacancy">ვაკანსია</a></li>
+                        <li><a href="/AboutUs">ჩვენს შესახებ</a></li>
                     </ul>
                 </div>
 

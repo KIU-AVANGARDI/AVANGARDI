@@ -10,7 +10,7 @@ export default function Authorization (){
                 <hr/>
                 <input type="email" className="box" placeholder="ელ.ფოსტა"/>
                 <input type="password" className="box" placeholder="პაროლი"/>
-                <button>შესვლა</button>
+                <button type="submit">შესვლა</button>
                 <p>დაგავიწყდა პაროლი?<a href="/forgotPass">დააჭირე აქ</a></p>
             </form>
         </div>

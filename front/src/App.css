@@ -5,6 +5,10 @@
   font-family: 'gilory';
   src: url('styles/fonts/Gilroy GEO Heavy.ttf');
 }
+@font-face {
+  font-family: 'dejavu';
+  src: url("styles/fonts/BPG DejaVu Sans ExtraLight Caps 2012.ttf");
+}
 body{
   font-family: gilory;
   letter-spacing: 1px;
