@@ -144,6 +144,9 @@
     max-width: 1198px;
 }
 
+b{
+    color: red;
+}
 
 @media (max-width: 1050px) {
     .vacancy-img{
