@@ -76,7 +76,6 @@ export default class APIService {
     }
 
     static GetUser(id, token) {
-        console.log(token)
         return fetch(`http://127.0.0.1:8000/auth/user/${id}`, {
             method: "GET",
             headers: {
@@ -103,33 +102,25 @@ export default class APIService {
         });
     }
 
-    static RegisterUser(body) {
+    static RegisterUser = async (body) => {
         const formData = new FormData()
         formData.append("email", body.email)
         formData.append("firstName", body.name)
         formData.append("password", body.password)
         formData.append("password2", body.confirmPassword)
+        formData.append("personalID", body.personalNumber)
+        formData.append("mobile", body.mobileNumber)
         formData.append("profilePicture", "")
-
         return axios({
             method: "post",
             url: "http://127.0.0.1:8000/auth/register",
             data: formData,
             headers: {"Content-Type": "multipart/form-data"},
-        })
+        });
     }
 
     static Logout() {
         return fetch("http://127.0.0.1:8000/auth/logout", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then((resp) => resp.json());
-    }
-
-    static UserDetails(id) {
-        return fetch(`http://127.0.0.1:8000/auth/user/${id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

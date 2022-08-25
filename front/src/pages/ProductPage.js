@@ -52,7 +52,6 @@ const ProductItem = () => {
                             <img src={item.image} />
                         </div>
                     </div>
-
                     <div className="single-item-details">
                         <h4>{item.name}</h4>
                         <hr/>
