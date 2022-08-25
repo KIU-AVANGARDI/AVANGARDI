@@ -1,12 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import "../styles/Vacancy.css"
 import img from "../assets/images/vacancy.png"
-import {faAngleDown,faAngleUp} from "@fortawesome/free-solid-svg-icons"
-import{FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import VacancyForm from "../components/VacancyForm";
 
 
 export default function Vacancy(){
-    const [formIsOpen,setFormIsOpen] = useState(false)
     return(
         <div className="vacancy-wrapper">
 
@@ -62,69 +60,8 @@ export default function Vacancy(){
                 <br/>
                 <p style={{color:'red'}}>დავუკავშირდებით მხოლოდ შერჩეულ კანდიდატებს.</p>
 
-                <div className="vacancy-form-wrapper">
-                    <button onClick={
-                        ()=>{
-                            setFormIsOpen(!formIsOpen)
-                        }
-                    } >შეავსე ფორმა {formIsOpen ? <FontAwesomeIcon icon={faAngleUp}/> : <FontAwesomeIcon icon={faAngleDown}/>}</button>
+                <VacancyForm/>
 
-                    <div className={formIsOpen?"vacancy-form show":"vacancy-form"}>
-                        <form action="">
-                            <div className="vacancy-inputs">
-                                <label>
-                                    სახელი *
-                                    <input type="text" />
-                                </label>
-
-                                <label>
-                                    გვარი *
-                                    <input type="text" />
-                                </label>
-
-                                <label>
-                                    ელ.ფოსტა
-                                    <input type="email" />
-                                </label>
-
-                                <label>
-                                    ტელეფონი *
-                                    <input type="number" />
-                                </label>
-
-                                <label>
-                                    დაბადების თარიღი *
-                                    <input type="date" />
-                                </label>
-
-                                <label>
-                                    მისამართი
-                                    <input type="text" />
-                                </label>
-
-                                <label>
-                                    სამუშაო გამოცდილება *
-                                    <textarea type="text" style={{height:'150px',resize:'none'}} placeholder="კომპანია; მუშაობის წლები; პირი ვინც გიგიწევთ რეკომენდაციას; რეკომენდატორის ტელეფონი; თვითდასაქმების შემთხვევაში მოგვაწოდეთ თქვენი პორტფოლიო office@avangardi.com.ge ზე (სახელი, გვარი, ნამუშევრის ორი ფოტოსურათი) და კლიენტის რეკომენდაცია."/>
-                                </label>
-
-                                <label>
-                                    დამატებითი ინფორმაცია
-                                    <textarea type="text" style={{height:'150px',resize:'none'}} placeholder="ვაკასიის/პოზიციის დასახელება რომლისთვისაც ავსებთ განაცხადს და თუ გსურთ მოგვაწოდოთ დამატებითი ინფორმაცია თქვენზე."/>
-                                </label>
-
-                                <label>
-                                    განათლება *
-                                    <select name="education" id="education">
-                                        <option value="საშუალო">საშუალო</option>
-                                        <option value="პროფესიული">პროფესიული</option>
-                                        <option value="უმაღლესი">უმაღლესი</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <button type="submit">გაგზავნა</button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     )
