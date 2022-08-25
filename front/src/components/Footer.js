@@ -54,7 +54,7 @@ export default function Footer() {
 
             <div className="sub-footer">
                 <div>
-                    <p>2022 avangardi.com © ყველა უფლება დაცულია</p>
+                    <p> © 2022 avangardi.com.ge</p>
                 </div>
             </div>
 

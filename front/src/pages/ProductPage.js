@@ -4,7 +4,8 @@ import React, {useEffect, useState} from 'react';
 import APIService from "../APIService";
 import {ErrorPage} from "./Errorpage";
 import {useCookies} from "react-cookie";
-
+import {faMagnifyingGlass,faXmark} from "@fortawesome/free-solid-svg-icons"
+import{FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 const ProductItem = () => {
     const [cookie, setCookie, removeCookie] = useCookies(["user_id"])
@@ -12,6 +13,16 @@ const ProductItem = () => {
     const type = params["type"]
     const id = params["id"]
     const [item, setItem] = useState("")
+    const [zoomed,setZoomed] = useState(false)
+
+    const [quantity,setQuantity] = useState(1)
+
+    function updateQuantity(value){
+        if(!(value === -1 && quantity===1)){
+            setQuantity(quantity+value)
+        }
+    }
+
     useEffect(() => {
         if(type === "kitchen"){
             APIService.GetKitchen(id).then((resp) => {
@@ -24,87 +35,141 @@ const ProductItem = () => {
             })
         }
     }, [])
-
     console.log(item)
 
-    if(type === "kitchen") {
-        return (
-            <div className="single-item-box">
-                <div className="single-main-box">
-                    <div className="single-half">
-                        <img src={item.image} alt=""/>
-                    </div>
-                    <div className="single-half">
-                        <div className="single-title">
-                            <h2>{item.name}</h2>
-                        </div>
-                        <div className="single-buttons">
-                            <button id="single-price">{item.price}₾</button>
-                            <button id="single-cart" onClick={() => {
-                                APIService.AddCartItem({
-                                        "user_id": parseInt(cookie["user_id"]),
-                                        "product_id": parseInt(id),
-                                    }
-                                ).then((resp) => console.log(resp))
-                            }}>Add to cart
-                            </button>
+    return (
+        <>
+            <div className="single-item-box-container">
+                <div className="single-item-box">
+
+                    <div className="single-item-images">
+                        <div className="single-item-big-image">
+                            <div onClick={
+                                ()=>{setZoomed(true)}
+                            }>
+                                <FontAwesomeIcon id="magnifyingGlass" icon={faMagnifyingGlass}/>
+                            </div>
+                            <img src={item.image} />
                         </div>
                     </div>
-                </div>
-                <ul>
-                    <li>{item.category}</li>
-                </ul>
-                <p className="single-description">{item.note}</p>
-                <div className="additional-info">
-                    <p>{item.price}</p>
-                    <p>ფასი: ჯასჯკას</p>
-                    <p>ფასი: ჯასჯკას</p>
-                    <p>ფასი: ჯასჯკას</p>
+                    <div className="single-item-details">
+                        <h4>{item.name}</h4>
+                        <hr/>
+                        <div className="single-item-category">
+                            <p>კატეგორია:</p>
+                            <div>{item.category}</div>
+                        </div>
+                        {/*<hr/>*/}
+                        <br/>
+
+                        <div className="single-item-quantity-container">
+                            <p>რაოდენობა: </p>
+                            <div className="single-item-quantity">
+                                <button onClick={()=>updateQuantity(-1)}>-</button>
+                                <p>{quantity}</p>
+                                <button onClick={()=>updateQuantity(1)}>+</button>
+                            </div>
+                        </div>
+                        <hr/>
+
+                        <div className="single-item-note">
+                            {item.note}
+                        </div>
+                    </div>
+
+                    <div className="sinlge-item-buttons">
+
+                    </div>
                 </div>
             </div>
-        );
-    }
-    else if(type === "material") {
-        return (
-            <div className="single-item-box">
-                <div className="single-main-box">
-                    <div className="single-half">
-                        <img src={item.image} alt=""/>
-                    </div>
-                    <div className="single-half">
-                        <div className="single-title">
-                            <h2>{item.name}</h2>
-                        </div>
-                        <div className="single-buttons">
-                            <button id="single-price">{item.price_square_meter}₾</button>
-                            <button id="single-cart" onClick={() => {
-                                APIService.AddCartItem({
-                                        "user_id": parseInt(cookie["user_id"]),
-                                        "product_id": parseInt(id),
-                                    }
-                                ).then((resp) => console.log(resp))
-                            }}>Add to cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <ul>
-                    <li>{item.category}</li>
-                </ul>
-                <p className="single-description">{item.note}</p>
-                <div className="additional-info">
-                    <p>ფასი: ჯასჯკას</p>
-                    <p>ფასი: ჯასჯკას</p>
-                    <p>ფასი: ჯასჯკას</p>
-                    <p>ფასი: ჯასჯკას</p>
-                </div>
-            </div>
-        );
-    }
-    else{
-        return (
-            <ErrorPage/>
-        )
-    }
+
+            {zoomed&&<div className="single-zoom-img-overlay" >
+                <div onClick={
+                    ()=>{setZoomed(false)}
+                }><FontAwesomeIcon id="xMark" icon={faXmark}/></div>
+                <img src={item.image}/>
+            </div>}
+        </>
+    );
+
+    // if(type === "kitchen") {
+    //     return (
+    //         <div className="single-item-box">
+    //             <div className="single-main-box">
+    //                 <div className="single-half">
+    //                     <img src={item.image} alt=""/>
+    //                 </div>
+    //                 <div className="single-half">
+    //                     <div className="single-title">
+    //                         <h2>{item.name}</h2>
+    //                     </div>
+    //                     <div className="single-buttons">
+    //                         <button id="single-price">{item.price}₾</button>
+    //                         <button id="single-cart" onClick={() => {
+    //                             APIService.AddCartItem({
+    //                                     "user_id": parseInt(cookie["user_id"]),
+    //                                     "product_id": parseInt(id),
+    //                                 }
+    //                             ).then((resp) => console.log(resp))
+    //                         }}>Add to cart
+    //                         </button>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //             <ul>
+    //                 <li>{item.category}</li>
+    //             </ul>
+    //             <p className="single-description">{item.note}</p>
+    //             <div className="additional-info">
+    //                 <p>ფასი: ჯასჯკას</p>
+    //                 <p>ფასი: ჯასჯკას</p>
+    //                 <p>ფასი: ჯასჯკას</p>
+    //                 <p>ფასი: ჯასჯკას</p>
+    //             </div>
+    //         </div>
+    //     );
+    // }
+    // else if(type === "material") {
+    //     return (
+    //         <div className="single-item-box">
+    //             <div className="single-main-box">
+    //                 <div className="single-half">
+    //                     <img src={item.image} alt=""/>
+    //                 </div>
+    //                 <div className="single-half">
+    //                     <div className="single-title">
+    //                         <h2>{item.name}</h2>
+    //                     </div>
+    //                     <div className="single-buttons">
+    //                         <button id="single-price">{item.price_square_meter}₾</button>
+    //                         <button id="single-cart" onClick={() => {
+    //                             APIService.AddCartItem({
+    //                                     "user_id": parseInt(cookie["user_id"]),
+    //                                     "product_id": parseInt(id),
+    //                                 }
+    //                             ).then((resp) => console.log(resp))
+    //                         }}>Add to cart
+    //                         </button>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //             <ul>
+    //                 <li>{item.category}</li>
+    //             </ul>
+    //             <p className="single-description">{item.note}</p>
+    //             <div className="additional-info">
+    //                 <p>ფასი: ჯასჯკას</p>
+    //                 <p>ფასი: ჯასჯკას</p>
+    //                 <p>ფასი: ჯასჯკას</p>
+    //                 <p>ფასი: ჯასჯკას</p>
+    //             </div>
+    //         </div>
+    //     );
+    // }
+    // else{
+    //     return (
+    //         <ErrorPage/>
+    //     )
+    // }
 };
 export default ProductItem;
