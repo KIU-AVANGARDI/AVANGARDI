@@ -37,7 +37,7 @@ export const HomePage = () => {
                     </div>
                 </div>
                 <div className="product-list">
-                    <h2>ნიჟარები</h2>
+                    <h2>სამზარეულოს ინვენტარი</h2>
                     <div className="products">
                         {kitchen.map((p) => (
                             <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price} type = "kitchen"/>

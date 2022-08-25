@@ -10,6 +10,8 @@ import Registration from "./pages/Registration";
 import ForgotPass from "./pages/ForgotPass";
 import AboutUs from "./pages/AboutUs";
 import Vacancy from "./pages/Vacancy";
+import {Cart} from "./pages/Cart";
+import {Shop} from "./pages/Shop";
 
 function App() {
 
@@ -19,13 +21,15 @@ function App() {
                 <Navbar/>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
-                    <Route path="/Vacancy" element={<Vacancy/>} />
-                    <Route path="/AboutUs" element={<AboutUs/>} />
+                    <Route path="/vacancy" element={<Vacancy/>} />
+                    <Route path="/about-us" element={<AboutUs/>} />
                     <Route path="products/:type/:id" element = {<ProductPage/>}/>
                     <Route path="*" element={<ErrorPage/>} />
                     <Route path="/authorization" element={<Authorization/>} />
                     <Route path="/registration" element={<Registration/>} />
-                    <Route path="/forgotPass" element={<ForgotPass/>} />
+                    <Route path="/forgot-pass" element={<ForgotPass/>} />
+                    <Route path="/cart" element={<Cart/>} />
+                    <Route path="/shop" element={<Shop/>} />
                 </Routes>
                 <Footer/>
             </div>
