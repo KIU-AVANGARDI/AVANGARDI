@@ -56,7 +56,7 @@ const ProductItem = () => {
                 </ul>
                 <p className="single-description">{item.note}</p>
                 <div className="additional-info">
-                    <p>ფასი: ჯასჯკას</p>
+                    <p>{item.price}</p>
                     <p>ფასი: ჯასჯკას</p>
                     <p>ფასი: ჯასჯკას</p>
                     <p>ფასი: ჯასჯკას</p>
