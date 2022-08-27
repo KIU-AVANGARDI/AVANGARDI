@@ -16,6 +16,7 @@ import {Shop} from "./pages/Shop";
 function App() {
 
     return (
+
         <BrowserRouter>
             <div className="App">
                 <Navbar/>
@@ -34,6 +35,7 @@ function App() {
                 <Footer/>
             </div>
         </BrowserRouter>
+
     );
 }
 

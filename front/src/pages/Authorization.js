@@ -4,9 +4,10 @@ import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {useCookies} from "react-cookie";
 import APIService from "../APIService";
+import {useTranslation} from "react-i18next";
 
 export default function Authorization (){
-
+    const {t} = useTranslation()
     const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -28,15 +29,15 @@ export default function Authorization (){
         <div className="auth-wrapper">
             <form action="">
 
-                <h2>ავტორიზაცია</h2>
+                <h2>{t("auth:auth")}</h2>
                 <hr/>
-                <input value = {email} onChange={(e) => setEmail(e.target.value)} type="email" className="box" placeholder="ელ.ფოსტა"/>
-                <input value = {password} onChange={(e) => setPassword(e.target.value)} type="password" className="box" placeholder="პაროლი"/>
+                <input value = {email} onChange={(e) => setEmail(e.target.value)} type="email" className="box" placeholder={t("auth:email")}/>
+                <input value = {password} onChange={(e) => setPassword(e.target.value)} type="password" className="box" placeholder={t("auth:password")}/>
                 <button type="submit" onClick={(e) => {
                     e.preventDefault()
                     login()
-                }}>შესვლა</button>
-                <p>დაგავიწყდა პაროლი?<a href="/forgot-pass">დააჭირე აქ</a></p>
+                }}>{t("auth:login")}</button>
+                <p>{t("auth:forgot")}<a href="/forgot-pass">{t("auth:click")}</a></p>
             </form>
         </div>
     )

@@ -1,0 +1,10 @@
+{
+  "reg": "Registration",
+  "firstLast": "First And Last Name",
+  "id": "ID Number",
+  "phone": "Phone Number",
+  "email": "Email",
+  "password": "Password",
+  "rePassword": "Repeat Password",
+  "register": "Register"
+}

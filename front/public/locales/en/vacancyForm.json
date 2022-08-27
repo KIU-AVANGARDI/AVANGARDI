@@ -1,0 +1,14 @@
+{
+  "fillTheForm": "Fill The Form",
+  "name": "Name",
+  "lastname": "Lastname",
+  "email": "Email",
+  "phone": "Phone",
+  "birthdate": "Birthdate",
+  "address": "Address",
+  "experience": "Work Experience",
+  "additionalInfo": "Additional Information",
+  "education": "Education",
+  "warning": "Please fill in all the required fields",
+  "send": "Send"
+}

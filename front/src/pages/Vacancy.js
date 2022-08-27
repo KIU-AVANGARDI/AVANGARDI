@@ -2,9 +2,10 @@ import React from "react";
 import "../styles/Vacancy.css"
 import img from "../assets/images/vacancy.png"
 import VacancyForm from "../components/VacancyForm";
-
+import {useTranslation} from "react-i18next";
 
 export default function Vacancy(){
+    const {t} = useTranslation()
     return(
         <div className="vacancy-wrapper">
 
@@ -12,7 +13,7 @@ export default function Vacancy(){
                 <img src={img}/>
                 <div className="vacancy-img-overlay">
                     <div className="hiring">
-                        ვაკანსია!
+                        {t("vacancy:vacancy")}
                     </div>
                 </div>
             </div>
