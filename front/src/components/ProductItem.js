@@ -18,7 +18,7 @@ const ProductItem = ({id, name, img, price, type}) => {
             </div>
             <p className="card-name" >{name}</p>
             <p className="card-price">{price} ₾</p>
-            <button className="details" onClick={showDetailsBtnClicked}> დაწვრილებით </button>
+            <button className="details" onClick={showDetailsBtnClicked}> დეტალურად </button>
         </div>
     );
 };

@@ -96,9 +96,9 @@ export default function Navbar(props) {
                         </button>
                     </div>
                     <div className={loginActive ? "login-dropdown active-login" : "login-dropdown"}>
-                        <a href="/cart"><p>ჩემი კალათა <FontAwesomeIcon icon={faShoppingCart}/></p></a>
+                        <a style={!loginActive?{pointerEvents:"none"}:{}} href="/cart"><p>ჩემი კალათა <FontAwesomeIcon icon={faShoppingCart}/></p></a>
                         <hr/>
-                        <a onClick={logOut}><p>გასვლა <FontAwesomeIcon icon={faArrowLeftLong}/></p></a>
+                        <a style={!loginActive?{pointerEvents:"none"}:{}} onClick={logOut}><p>გასვლა <FontAwesomeIcon icon={faArrowLeftLong}/></p></a>
                     </div>
                 </div>
 

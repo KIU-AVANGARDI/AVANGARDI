@@ -1,10 +1,10 @@
 import '../styles/ProductPage.css';
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import React, {useEffect, useState} from 'react';
 import APIService from "../APIService";
 import {ErrorPage} from "./Errorpage";
 import {useCookies} from "react-cookie";
-import {faMagnifyingGlass,faXmark} from "@fortawesome/free-solid-svg-icons"
+import {faMagnifyingGlass,faXmark,faCheckCircle,faCartShopping} from "@fortawesome/free-solid-svg-icons"
 import{FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 const ProductItem = () => {
@@ -14,8 +14,8 @@ const ProductItem = () => {
     const id = params["id"]
     const [item, setItem] = useState("")
     const [zoomed,setZoomed] = useState(false)
-
     const [quantity,setQuantity] = useState(1)
+
 
     function updateQuantity(value){
         if(!(value === -1 && quantity===1)){
@@ -35,7 +35,9 @@ const ProductItem = () => {
             })
         }
     }, [])
+    const price = type === "kitchen" ? item.price:item.price_square_meter
     console.log(item)
+
 
     return (
         <>
@@ -59,9 +61,7 @@ const ProductItem = () => {
                             <p>კატეგორია:</p>
                             <div>{item.category}</div>
                         </div>
-                        {/*<hr/>*/}
                         <br/>
-
                         <div className="single-item-quantity-container">
                             <p>რაოდენობა: </p>
                             <div className="single-item-quantity">
@@ -77,13 +77,29 @@ const ProductItem = () => {
                         </div>
                     </div>
 
-                    <div className="sinlge-item-buttons">
+                    <div className="single-item-buttons-container">
+                        <div className="single-item-buttons">
+                            <div className="in-stock">
+                                <h4><FontAwesomeIcon icon={faCheckCircle}/> მარაგშია</h4>
+                            </div>
+                            <hr/>
+                            <div className="single-item-price">
+                                <h4>ფასი: <span style={{color:"#e29f4f",fontFamily:"gilory"}}>{price} ₾</span></h4>
+                            </div>
+                            <hr/>
+                            <div className="single-add-to-cart">
+                                <button><FontAwesomeIcon icon={faCartShopping}/> კალათაში დამატება</button>
 
+                                <h4>სულ: <span style={{color:"#e29f4f",fontFamily:"gilory"}}>{price*quantity} ₾</span></h4>
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
             </div>
 
-            {zoomed&&<div className="single-zoom-img-overlay" >
+            {zoomed && <div className="single-zoom-img-overlay" >
                 <div onClick={
                     ()=>{setZoomed(false)}
                 }><FontAwesomeIcon id="xMark" icon={faXmark}/></div>
@@ -92,84 +108,5 @@ const ProductItem = () => {
         </>
     );
 
-    // if(type === "kitchen") {
-    //     return (
-    //         <div className="single-item-box">
-    //             <div className="single-main-box">
-    //                 <div className="single-half">
-    //                     <img src={item.image} alt=""/>
-    //                 </div>
-    //                 <div className="single-half">
-    //                     <div className="single-title">
-    //                         <h2>{item.name}</h2>
-    //                     </div>
-    //                     <div className="single-buttons">
-    //                         <button id="single-price">{item.price}₾</button>
-    //                         <button id="single-cart" onClick={() => {
-    //                             APIService.AddCartItem({
-    //                                     "user_id": parseInt(cookie["user_id"]),
-    //                                     "product_id": parseInt(id),
-    //                                 }
-    //                             ).then((resp) => console.log(resp))
-    //                         }}>Add to cart
-    //                         </button>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //             <ul>
-    //                 <li>{item.category}</li>
-    //             </ul>
-    //             <p className="single-description">{item.note}</p>
-    //             <div className="additional-info">
-    //                 <p>ფასი: ჯასჯკას</p>
-    //                 <p>ფასი: ჯასჯკას</p>
-    //                 <p>ფასი: ჯასჯკას</p>
-    //                 <p>ფასი: ჯასჯკას</p>
-    //             </div>
-    //         </div>
-    //     );
-    // }
-    // else if(type === "material") {
-    //     return (
-    //         <div className="single-item-box">
-    //             <div className="single-main-box">
-    //                 <div className="single-half">
-    //                     <img src={item.image} alt=""/>
-    //                 </div>
-    //                 <div className="single-half">
-    //                     <div className="single-title">
-    //                         <h2>{item.name}</h2>
-    //                     </div>
-    //                     <div className="single-buttons">
-    //                         <button id="single-price">{item.price_square_meter}₾</button>
-    //                         <button id="single-cart" onClick={() => {
-    //                             APIService.AddCartItem({
-    //                                     "user_id": parseInt(cookie["user_id"]),
-    //                                     "product_id": parseInt(id),
-    //                                 }
-    //                             ).then((resp) => console.log(resp))
-    //                         }}>Add to cart
-    //                         </button>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //             <ul>
-    //                 <li>{item.category}</li>
-    //             </ul>
-    //             <p className="single-description">{item.note}</p>
-    //             <div className="additional-info">
-    //                 <p>ფასი: ჯასჯკას</p>
-    //                 <p>ფასი: ჯასჯკას</p>
-    //                 <p>ფასი: ჯასჯკას</p>
-    //                 <p>ფასი: ჯასჯკას</p>
-    //             </div>
-    //         </div>
-    //     );
-    // }
-    // else{
-    //     return (
-    //         <ErrorPage/>
-    //     )
-    // }
 };
 export default ProductItem;
