@@ -2,12 +2,13 @@ import '../styles/ProductPage.css';
 import {useParams} from "react-router-dom";
 import React, {useEffect, useState} from 'react';
 import APIService from "../APIService";
-import {ErrorPage} from "./Errorpage";
 import {useCookies} from "react-cookie";
 import {faMagnifyingGlass,faXmark,faCheckCircle,faCartShopping} from "@fortawesome/free-solid-svg-icons"
 import{FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {useTranslation} from "react-i18next";
 
 const ProductItem = () => {
+    const {t} = useTranslation()
     const [cookie, setCookie, removeCookie] = useCookies(["user_id"])
     const params = useParams()
     const type = params["type"]
@@ -58,12 +59,12 @@ const ProductItem = () => {
                         <h4>{item.name}</h4>
                         <hr/>
                         <div className="single-item-category">
-                            <p>კატეგორია:</p>
+                            <p>{t("productPage:category")}</p>
                             <div>{item.category}</div>
                         </div>
                         <br/>
                         <div className="single-item-quantity-container">
-                            <p>რაოდენობა: </p>
+                            <p>{t("productPage:quantity")}</p>
                             <div className="single-item-quantity">
                                 <button onClick={()=>updateQuantity(-1)}>-</button>
                                 <p>{quantity}</p>
@@ -80,17 +81,17 @@ const ProductItem = () => {
                     <div className="single-item-buttons-container">
                         <div className="single-item-buttons">
                             <div className="in-stock">
-                                <h4><FontAwesomeIcon icon={faCheckCircle}/> მარაგშია</h4>
+                                <h4><FontAwesomeIcon icon={faCheckCircle}/> {t("productPage:inStock")}</h4>
                             </div>
                             <hr/>
                             <div className="single-item-price">
-                                <h4>ფასი: <span style={{color:"#e29f4f",fontFamily:"gilory"}}>{price} ₾</span></h4>
+                                <h4>{t("productPage:price")} <span style={{color:"#e29f4f",fontFamily:"gilory"}}>{price} ₾</span></h4>
                             </div>
                             <hr/>
                             <div className="single-add-to-cart">
-                                <button><FontAwesomeIcon icon={faCartShopping}/> კალათაში დამატება</button>
+                                <button><FontAwesomeIcon icon={faCartShopping}/> {t("productPage:addToCart")}</button>
 
-                                <h4>სულ: <span style={{color:"#e29f4f",fontFamily:"gilory"}}>{price*quantity} ₾</span></h4>
+                                <h4>{t("productPage:fullPrice")}<span style={{color:"#e29f4f",fontFamily:"gilory"}}> {price*quantity} ₾</span></h4>
                             </div>
 
                         </div>

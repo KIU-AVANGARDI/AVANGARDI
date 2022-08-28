@@ -10,7 +10,17 @@ i18next
     .init({
         // fallbackLng: 'ge',
         lng:localStorage.getItem("lng")||"ge",
-        ns: ['common',"home","productItem","vacancyForm","vacancy","auth","reg","forgot"],
+        ns: [
+            'common',
+            "home",
+            "productItem",
+            "vacancyForm",
+            "vacancy",
+            "auth",
+            "reg",
+            "forgot",
+            "productPage"
+        ],
         react: { useSuspense: false },
 
     })
