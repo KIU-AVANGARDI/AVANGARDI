@@ -1,12 +1,12 @@
 import "../styles/Registration.css"
-
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useCookies} from "react-cookie";
 import APIService from "../APIService";
+import {useTranslation} from "react-i18next";
 
 export default function Registration(){
-
+    const {t} = useTranslation()
     const navigate = useNavigate()
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -35,18 +35,18 @@ export default function Registration(){
         <div className="reg-wrapper">
             <form action="">
 
-                <h2>რეგისტრაცია</h2>
+                <h2>{t("reg:reg")}</h2>
                 <hr/>
-                <input value = {name} onChange={(e) => setName(e.target.value)} type="text"  placeholder="სახელი გვარი"/>
-                <input value = {personalNumber} onChange={(e) => setPersonalNumber(e.target.value)} type="number"  placeholder="პირადი ნომერი"/>
-                <input value = {mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} type="number"  placeholder="ტელეფონის ნომერი"/>
-                <input value = {email} onChange={(e) => setEmail(e.target.value)} type="email"  placeholder="ელ.ფოსტა"/>
-                <input value = {password} onChange={(e) => setPassword(e.target.value)} type="password"  placeholder="პაროლი"/>
-                <input value = {confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password"  placeholder="გაიმეორეთ პაროლი"/>
+                <input value = {name} onChange={(e) => setName(e.target.value)} type="text"  placeholder={t("reg:firstLast")}/>
+                <input value = {personalNumber} onChange={(e) => setPersonalNumber(e.target.value)} type="number"  placeholder={t("reg:id")}/>
+                <input value = {mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} type="number"  placeholder={t("reg:phone")}/>
+                <input value = {email} onChange={(e) => setEmail(e.target.value)} type="email"  placeholder={t("reg:email")}/>
+                <input value = {password} onChange={(e) => setPassword(e.target.value)} type="password"  placeholder={t("reg:password")}/>
+                <input value = {confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password"  placeholder={t("reg:rePassword")}/>
                 <button onClick={(e) => {
                     e.preventDefault()
                     register()
-                }}>რეგისტრაცია</button>
+                }}>{t("reg:register")}</button>
             </form>
         </div>
     )

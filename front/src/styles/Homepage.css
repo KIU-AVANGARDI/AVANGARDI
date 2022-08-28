@@ -25,6 +25,7 @@
 }
 .product-list h2 {
     color: #4c4c4d;
+    height: 100px;
     padding-bottom: 30px;
     padding-top: 30px;
 }
@@ -57,8 +58,11 @@
 }
 
 @media (max-width: 400px){
+    .product-list h2 {
+        height: 70px;
+    }
     .product-list h2{
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 

@@ -4,8 +4,10 @@ import {faAngleDown, faAngleUp} from "@fortawesome/free-solid-svg-icons";
 import emailjs from '@emailjs/browser'
 import {useNavigate} from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert'
+import  {useTranslation} from "react-i18next";
 
 export default function VacancyForm() {
+    const {t} = useTranslation()
     const [formIsOpen,setFormIsOpen] = useState(false)
     const form = useRef()
     const navigate = useNavigate()
@@ -54,53 +56,53 @@ export default function VacancyForm() {
                 ()=>{
                     setFormIsOpen(!formIsOpen)
                 }
-            } >შეავსე ფორმა {formIsOpen ? <FontAwesomeIcon icon={faAngleUp}/> : <FontAwesomeIcon icon={faAngleDown}/>}</button>
+            } >{t("vacancyForm:fillTheForm")} {formIsOpen ? <FontAwesomeIcon icon={faAngleUp}/> : <FontAwesomeIcon icon={faAngleDown}/>}</button>
 
             <div className={formIsOpen?"vacancy-form show":"vacancy-form"}>
                 <form  ref={form} onSubmit={handleSubmit}>
                     <div className="vacancy-inputs">
                         <label>
-                            სახელი <b>*</b>
+                            {t("vacancyForm:name")} <b>*</b>
                             <input type="text" name="name" onChange={handleChange}/>
                         </label>
 
                         <label>
-                            გვარი <b>*</b>
+                            {t("vacancyForm:lastname")} <b>*</b>
                             <input type="text" name="surname" onChange={handleChange}/>
                         </label>
 
                         <label>
-                            ელ.ფოსტა
+                            {t("vacancyForm:email")}
                             <input type="email" name="email"/>
                         </label>
 
                         <label>
-                            ტელეფონი <b>*</b>
+                            {t("vacancyForm:phone")} <b>*</b>
                             <input type="number" name="phone_number" onChange={handleChange}/>
                         </label>
 
                         <label>
-                            დაბადების თარიღი <b>*</b>
+                            {t("vacancyForm:birthdate")} <b>*</b>
                             <input type="date" name="birth_date" onChange={handleChange}/>
                         </label>
 
                         <label>
-                            მისამართი
+                            {t("vacancyForm:address")}
                             <input type="text" name="address"/>
                         </label>
 
                         <label>
-                            სამუშაო გამოცდილება <b>*</b>
+                            {t("vacancyForm:experience")} <b>*</b>
                             <textarea  onChange={handleChange} name="experience" style={{height:'150px',resize:'none'}} placeholder="კომპანია; მუშაობის წლები; პირი ვინც გიგიწევთ რეკომენდაციას; რეკომენდატორის ტელეფონი; თვითდასაქმების შემთხვევაში მოგვაწოდეთ თქვენი პორტფოლიო office@avangardi.com.ge ზე (სახელი, გვარი, ნამუშევრის ორი ფოტოსურათი) და კლიენტის რეკომენდაცია."/>
                         </label>
 
                         <label>
-                            დამატებითი ინფორმაცია
+                            {t("vacancyForm:additionalInfo")}
                             <textarea  name="additional_info" style={{height:'150px',resize:'none'}} placeholder="ვაკასიის/პოზიციის დასახელება რომლისთვისაც ავსებთ განაცხადს და თუ გსურთ მოგვაწოდოთ დამატებითი ინფორმაცია თქვენზე."/>
                         </label>
 
                         <label>
-                            განათლება <b>*</b>
+                            {t("vacancyForm:education")} <b>*</b>
                             <select name="education" onChange={handleChange} >
                                 <option hidden selected></option>
                                 <option value="საშუალო">საშუალო</option>
@@ -111,9 +113,9 @@ export default function VacancyForm() {
                     </div>
                     <br/>
                     {error&&
-                        <Alert key="danger" variant="danger"><b>გთხოვთ შეავსოთ ყველა საჭირო ველი</b></Alert>
+                        <Alert key="danger" variant="danger"><b>{t("vacancyForm:warning")}</b></Alert>
                     }
-                    <button type="submit">გაგზავნა</button>
+                    <button type="submit">{t("vacancyForm:send")}</button>
                 </form>
             </div>
         </div>

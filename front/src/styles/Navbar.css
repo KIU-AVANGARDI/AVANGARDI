@@ -7,6 +7,36 @@ nav{
             inset 0 13px 19px -15px #67686a;
 }
 
+.language-changer{
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    background: #e29f4f;
+    color: white;
+    position: absolute;
+    width: 160px;
+    top: 100px;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transform: translateX(-110px);
+    transition: all 0.5s;
+}
+
+.language-changer:hover{
+    transform: translateX(0);
+}
+
+.language-changer img{
+    width: 40px;
+}
+
+#globe{
+    width: 30px;
+    height: 30px;
+}
+
 .logo-container{
     height: 100px;
     width: 300px;
@@ -99,6 +129,7 @@ nav{
     display: flex;
     align-items: center;
     border-radius:  0 0 10px 0;
+
 }
 
 .links{
@@ -219,6 +250,7 @@ nav{
         background-color: inherit;
         transform: translateX(-100%);
         transition: transform 1s;
+        box-shadow: rgba(0, 0, 0, 0.35) 0 -29px 28px -32px inset;
     }
     .show-nav{
         transform: none;

@@ -1,14 +1,19 @@
 import React, {useEffect, useRef, useState} from "react"
-import logo from "../logo1.svg"
-import {faArrowLeftLong, faArrowRightToBracket, faShoppingCart, faUser} from "@fortawesome/free-solid-svg-icons"
+import logo1 from "../logo1.svg"
+import logo from "../logo.svg"
+import {faArrowLeftLong, faArrowRightToBracket, faShoppingCart, faUser, faGlobe} from "@fortawesome/free-solid-svg-icons"
 import "../styles/Navbar.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useCookies} from "react-cookie";
 import APIService from "../APIService";
 import {useNavigate} from "react-router-dom";
+import ge from "../assets/images/ge.svg"
+import gb from "../assets/images/gb.svg"
+import  {useTranslation} from "react-i18next";
 
 
 export default function Navbar(props) {
+    const {t,i18n} = useTranslation()
     const [opened, setOpened] = useState(false)
     const [loginActive, setLoginActive] = useState(false)
     const [fullName, setFullName] = useState("")
@@ -27,6 +32,11 @@ export default function Navbar(props) {
 
     function showLinks() {
         navRef.current.classList.toggle("show-nav")
+    }
+
+    function handleFlagClick(ln) {
+        i18n.changeLanguage(ln)
+        localStorage.setItem("lng",ln)
     }
 
     useEffect(() => {
@@ -58,16 +68,22 @@ export default function Navbar(props) {
 
     return (
         <nav>
+            <div className="language-changer">
+                <img src={ge} onClick={()=>{handleFlagClick("ge")}}/>
+                <img src={gb} onClick={()=>{handleFlagClick("en")}} />
+                <FontAwesomeIcon id="globe" icon={faGlobe} />
+            </div>
+
             <div className="logo-container">
-                <a href="/"><img src={logo} alt={"logo"}/></a>
+                <a href="/"><img src={localStorage.getItem("lng")==="en"?logo:logo1} alt={"logo"}/></a>
             </div>
             <div ref={navRef} className="links-cont">
                 <div className="links">
                     <ul>
-                        <li><a href="/">მთავარი</a></li>
-                        <li><a href="/shop">მაღაზია</a></li>
-                        <li><a href="/vacancy">ვაკანსია</a></li>
-                        <li><a href="/about-us">ჩვენს შესახებ</a></li>
+                        <li><a href="/">{t("common:home")}</a></li>
+                        <li><a href="/shop">{t("common:shop")}</a></li>
+                        <li><a href="/vacancy">{t("common:vacancy")}</a></li>
+                        <li><a href="/about-us">{t("common:aboutUs")}</a></li>
                     </ul>
                 </div>
 
@@ -77,13 +93,13 @@ export default function Navbar(props) {
                             () => {
                                 setLoginActive(!loginActive)
                             }
-                        }><FontAwesomeIcon icon={faArrowRightToBracket}/> &nbsp;&nbsp;შესვლა
+                        }><FontAwesomeIcon icon={faArrowRightToBracket}/> &nbsp;&nbsp;{t("common:login")}
                         </button>
                     </div>
                     <div className={loginActive?"login-dropdown active-login":"login-dropdown"}>
-                        <a style={!loginActive?{pointerEvents:"none"}:{}} href="/authorization"><p>ავტორიზაცია</p></a>
+                        <a style={!loginActive?{pointerEvents:"none"}:{}} href="/authorization"><p>{t("common:authorization")}</p></a>
                         <hr/>
-                        <a style={!loginActive?{pointerEvents:"none"}:{}} href="/registration"><p>რეგისტრაცია</p></a>
+                        <a style={!loginActive?{pointerEvents:"none"}:{}} href="/registration"><p>{t("common:registration")}</p></a>
                     </div>
                 </div>
                 <div className="login-wrapper" hidden={cookie["user_id"] === null || cookie["user_id"] === undefined}>
@@ -96,9 +112,9 @@ export default function Navbar(props) {
                         </button>
                     </div>
                     <div className={loginActive ? "login-dropdown active-login" : "login-dropdown"}>
-                        <a href="/cart"><p>ჩემი კალათა <FontAwesomeIcon icon={faShoppingCart}/></p></a>
+                        <a style={!loginActive?{pointerEvents:"none"}:{}} href="/cart"><p>{t("common:myCart")} <FontAwesomeIcon icon={faShoppingCart}/></p></a>
                         <hr/>
-                        <a onClick={logOut}><p>გასვლა <FontAwesomeIcon icon={faArrowLeftLong}/></p></a>
+                        <a style={!loginActive?{pointerEvents:"none"}:{}} onClick={logOut}><p>{t("common:logOut")} <FontAwesomeIcon icon={faArrowLeftLong}/></p></a>
                     </div>
                 </div>
 

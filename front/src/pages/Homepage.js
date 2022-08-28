@@ -3,9 +3,11 @@ import {useEffect,useState} from "react";
 import APIService from "../APIService";
 import ProductItem from "../components/ProductItem";
 import CarouselC from "../components/CarouselC";
+import  {useTranslation} from "react-i18next";
+
 
 export const HomePage = () => {
-
+    const {t} = useTranslation()
     const [materials, setMaterials] = useState([])
     const [kitchen, setKitchen] = useState([])
 
@@ -29,7 +31,7 @@ export const HomePage = () => {
             
             <div className="lists">
                 <div className="product-list">
-                    <h2>ზედაპირები</h2>
+                    <h2>{t("home:worktops")}</h2>
                     <div className="products">
                         {materials.map((p) => (
                             <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price_square_meter} type = "material"/>
@@ -37,7 +39,7 @@ export const HomePage = () => {
                     </div>
                 </div>
                 <div className="product-list">
-                    <h2>სამზარეულოს ინვენტარი</h2>
+                    <h2>{t("home:kitchenEquipment")}</h2>
                     <div className="products">
                         {kitchen.map((p) => (
                             <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price} type = "kitchen"/>
