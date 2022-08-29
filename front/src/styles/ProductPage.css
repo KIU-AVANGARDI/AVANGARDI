@@ -273,6 +273,12 @@
     height: 35px;
 }
 
+.slick-prev:before {
+    color: #4c4c4d;
+}
+.slick-next:before {
+    color: #4c4c4d;
+}
 
 @media (max-width: 1500px) {
     .single-item-box > div{

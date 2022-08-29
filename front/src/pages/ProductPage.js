@@ -5,10 +5,12 @@ import APIService from "../APIService";
 import {useCookies} from "react-cookie";
 import {faMagnifyingGlass,faXmark,faCheckCircle,faCartShopping} from "@fortawesome/free-solid-svg-icons"
 import{FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import Slider from "react-slick"
 import {useTranslation} from "react-i18next";
 import temp from "../assets/images/2.png"
+import ProductItem from "../components/ProductItem";
 
-const ProductItem = () => {
+const ProductPage = () => {
     const {t} = useTranslation()
     const [cookie, setCookie, removeCookie] = useCookies(["user_id"])
     const params = useParams()
@@ -19,9 +21,10 @@ const ProductItem = () => {
     const [quantity,setQuantity] = useState(1)
     const [currentImg,setCurrentImg] = useState(null)
 
+
+
     function handleFocus(e){
         setCurrentImg(e.target.attributes.src.value)
-        console.log(e.target.parentNode)
     }
 
     function updateQuantity(value){
@@ -45,10 +48,42 @@ const ProductItem = () => {
         }
     }, [])
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        speed: 2000,
+        cssEase: "linear",
+        responsive: [
+            {
+                breakpoint: 1550,
+                settings: {
+                    slidesToShow: 5,
+                }
+            },
+            {
+                breakpoint: 1350,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },
+            {
+                breakpoint: 1050,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+        ]
+    };
 
     const price = type === "kitchen" ? item.price:item.price_square_meter
-    console.log(item)
-
 
     return (
         <>
@@ -117,6 +152,21 @@ const ProductItem = () => {
 
                 </div>
             </div>
+            <div style={{padding:"50px 50px 100px 50px",background:"#faf3ed",color:"#4c4c4d"}}>
+                <h2 style={{display:"flex",width:"100%",justifyContent:"start",fontFamily:"gilory"}}>მსგავსი პროდუქცია</h2>
+                <hr/>
+                <br/>
+                <Slider {...settings}>
+                    <ProductItem/>
+                    <ProductItem/>
+                    <ProductItem/>
+                    <ProductItem/>
+                    <ProductItem/>
+                    <ProductItem/>
+                    <ProductItem/>
+                    <ProductItem/>
+                </Slider>
+            </div>
 
             {zoomed && <div className="single-zoom-img-overlay" >
                 <div onClick={
@@ -128,4 +178,4 @@ const ProductItem = () => {
     );
 
 };
-export default ProductItem;
+export default ProductPage;
