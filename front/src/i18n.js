@@ -19,7 +19,8 @@ i18next
             "auth",
             "reg",
             "forgot",
-            "productPage"
+            "productPage",
+            "contact"
         ],
         react: { useSuspense: false },
 

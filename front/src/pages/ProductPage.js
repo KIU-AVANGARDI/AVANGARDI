@@ -6,6 +6,7 @@ import {useCookies} from "react-cookie";
 import {faMagnifyingGlass,faXmark,faCheckCircle,faCartShopping} from "@fortawesome/free-solid-svg-icons"
 import{FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {useTranslation} from "react-i18next";
+import temp from "../assets/images/2.png"
 
 const ProductItem = () => {
     const {t} = useTranslation()
@@ -16,7 +17,12 @@ const ProductItem = () => {
     const [item, setItem] = useState("")
     const [zoomed,setZoomed] = useState(false)
     const [quantity,setQuantity] = useState(1)
+    const [currentImg,setCurrentImg] = useState(null)
 
+    function handleFocus(e){
+        setCurrentImg(e.target.attributes.src.value)
+        console.log(e.target.parentNode)
+    }
 
     function updateQuantity(value){
         if(!(value === -1 && quantity===1)){
@@ -28,14 +34,18 @@ const ProductItem = () => {
         if(type === "kitchen"){
             APIService.GetKitchen(id).then((resp) => {
                 setItem(resp);
+                setCurrentImg(resp.image)
             })
         }
         if(type === "material"){
             APIService.GetMaterial(id).then((resp) => {
                 setItem(resp);
+                setCurrentImg(resp.image)
             })
         }
     }, [])
+
+
     const price = type === "kitchen" ? item.price:item.price_square_meter
     console.log(item)
 
@@ -46,13 +56,21 @@ const ProductItem = () => {
                 <div className="single-item-box">
 
                     <div className="single-item-images">
-                        <div className="single-item-big-image">
-                            <div onClick={
-                                ()=>{setZoomed(true)}
-                            }>
-                                <FontAwesomeIcon id="magnifyingGlass" icon={faMagnifyingGlass}/>
+                        <div>
+                            <div className="single-item-big-image">
+                                <div onClick={
+                                    ()=>{setZoomed(true)}
+                                }>
+                                    <FontAwesomeIcon id="magnifyingGlass" icon={faMagnifyingGlass}/>
+                                </div>
+                                <img src={currentImg} />
                             </div>
-                            <img src={item.image} />
+                            <div className="single-small-images">
+                                <div><img onClick={handleFocus} src={item.image}/></div>
+                                <div><img onClick={handleFocus} src={temp}/></div>
+                                <div><img onClick={handleFocus}/></div>
+                                <div><img onClick={handleFocus}/></div>
+                            </div>
                         </div>
                     </div>
                     <div className="single-item-details">
@@ -104,7 +122,7 @@ const ProductItem = () => {
                 <div onClick={
                     ()=>{setZoomed(false)}
                 }><FontAwesomeIcon id="xMark" icon={faXmark}/></div>
-                <img src={item.image}/>
+                <img src={currentImg}/>
             </div>}
         </>
     );

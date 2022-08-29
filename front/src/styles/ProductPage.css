@@ -31,6 +31,10 @@
     height: 100%;
 }
 
+.single-item-images > div{
+    width: 500px;
+}
+
 .single-item-big-image{
     position: relative;
     width: 500px;
@@ -71,6 +75,36 @@
     border-radius: 15px;
     object-fit: cover;
 }
+
+.single-small-images{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.single-small-images div{
+    border: transparent 2px solid;
+    border-radius: 5px;
+    aspect-ratio: 1/1;
+    width: 24%;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+    transition: all .25s;
+}
+
+.single-small-images div:hover{
+    border: #e29f4f 2px solid;
+}
+
+
+.single-small-images div img{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
      /*details*/
 .single-item-details{
     font-family: dejavu;
@@ -244,6 +278,9 @@
     .single-item-box > div{
         align-items: center;
     }
+    .single-item-images > div{
+        width: 400px;
+    }
     .single-item-big-image{
         width: 400px;
         height: 400px;
@@ -260,6 +297,9 @@
     }
     .single-item-images{
         width: 35%;
+    }
+    .single-item-images > div{
+        width: 300px;
     }
     .single-item-big-image{
         width: 300px;
@@ -302,6 +342,9 @@
 }
 
 @media (max-width: 950px) {
+    .single-item-images > div{
+        width: 250px;
+    }
     .single-item-big-image{
         width: 250px;
         height: 250px;
