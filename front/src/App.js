@@ -15,6 +15,7 @@ import Vacancy from "./pages/Vacancy";
 import {Cart} from "./pages/Cart";
 import {Shop} from "./pages/Shop";
 import Contact from "./pages/Contact";
+import CartItem from "./components/CartItem"
 
 function App() {
 
