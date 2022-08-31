@@ -1,4 +1,6 @@
 import './App.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Footer from "./components/Footer";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {HomePage} from "./pages/Homepage";
@@ -12,6 +14,8 @@ import AboutUs from "./pages/AboutUs";
 import Vacancy from "./pages/Vacancy";
 import {Cart} from "./pages/Cart";
 import {Shop} from "./pages/Shop";
+import Contact from "./pages/Contact";
+import CartItem from "./components/CartItem"
 
 function App() {
 
@@ -31,6 +35,7 @@ function App() {
                     <Route path="/forgot-pass" element={<ForgotPass/>} />
                     <Route path="/cart" element={<Cart/>} />
                     <Route path="/shop" element={<Shop/>} />
+                    <Route path="/contact" element={<Contact/>} />
                 </Routes>
                 <Footer/>
             </div>

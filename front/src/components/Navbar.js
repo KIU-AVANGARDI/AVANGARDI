@@ -83,6 +83,7 @@ export default function Navbar(props) {
                         <li><a href="/">{t("common:home")}</a></li>
                         <li><a href="/shop">{t("common:shop")}</a></li>
                         <li><a href="/vacancy">{t("common:vacancy")}</a></li>
+                        <li><a href="/contact">{t("common:contact")}</a></li>
                         <li><a href="/about-us">{t("common:aboutUs")}</a></li>
                     </ul>
                 </div>
