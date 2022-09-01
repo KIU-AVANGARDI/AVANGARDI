@@ -64,6 +64,15 @@ export default class APIService {
         }).then((resp) => resp.json());
     }
 
+    static DeleteCartItem(id) {
+        return fetch(`http://127.0.0.1:8000/cart/delete/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((resp) => resp.json());
+    }
+
     static AddCartItem(body) {
         console.log(JSON.stringify(body))
         return fetch("http://127.0.0.1:8000/cart/add", {

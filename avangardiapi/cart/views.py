@@ -2,6 +2,8 @@ from django_rest.http import status
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
+
 from .models import Cart
 from . import serializers
 
@@ -34,3 +36,15 @@ class AddCartView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class DeleteCartView(ModelViewSet):
+    queryset = Cart.objects.all()
+    serializer_class = serializers.CartSerializer
+    http_method_names = ['delete', ]
+
+    def destroy(self, request, pk=None, *args, **kwargs):
+        print(pk)
+        instance = self.get_object()
+        # you custom logic #
+        return super(DeleteCartView, self).destroy(request, pk, *args, **kwargs)
