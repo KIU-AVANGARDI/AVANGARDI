@@ -35,6 +35,7 @@ function App() {
                     <Route path="/forgot-pass" element={<ForgotPass/>} />
                     <Route path="/cart" element={<Cart/>} />
                     <Route path="/shop" element={<Shop/>} />
+                    <Route path="/shop/:category/:pfrom/:pto/:kword" element={<Shop/>} />
                     <Route path="/contact" element={<Contact/>} />
                 </Routes>
                 <Footer/>

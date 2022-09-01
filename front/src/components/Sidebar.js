@@ -20,6 +20,9 @@ import {BsSearch} from "react-icons/bs";
 import "react-pro-sidebar/dist/css/styles.css";
 import "../styles/Sidebar.scss";
 import {GiKitchenTap, GiWoodBeam} from "react-icons/gi";
+import {Input} from "reactstrap";
+import APIService from "../APIService";
+import {HiDotsHorizontal} from "react-icons/hi";
 
 export default function Sidebar() {
     const [menuCollapse, setMenuCollapse] = useState(false);
@@ -34,7 +37,7 @@ export default function Sidebar() {
     const [MixersActive, setMixersActive] = useState(false);
 
     const [SearchText, setSearchText] = useState(<BsSearch/>);
-
+    const [products, setProducts] = useState([]);
     const menuIconClick = () => {
         menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
         menuCollapse ? setSearchText("ძიება") : setSearchText(<BsSearch/>);
@@ -73,8 +76,37 @@ export default function Sidebar() {
 
     let navigate = useNavigate();
 
-    function SearchButtonClick() {
-        navigate("/products");
+    const searchButtonClicked = (searchInput, priceFilters, categoryFilters) => {
+        const types = new Map(Object.entries(categoryFilters));
+        const dict = {
+            "STANDARD" : 'STANDARD',
+            "STANDARDPLUS" : 'STANDARD PLUS',
+            "SOLIDDECORATIVELAMINATE":"SOLID DECORATIVE LAMINATE",
+            "WORKTOPS":"WORKTOPS",
+            "WOODWORKTOPS":"WOOD WORKTOPS",
+            "COMPACTLAMINATEWORKTOPS":"COMPACT LAMINATE WORKTOPS",
+            "SOLIDACRYLICWORKTOPS":"SOLID ACRYLIC WORKTOPS"
+        }
+        let type = '';
+        types.forEach((value, key) => {
+            if (value === true) {
+                type += dict[key];
+                type += "_";
+            }
+        });
+        type.slice(0, -1);
+        let qp = ``;
+        if (searchInput !== "")
+            qp += `kword=${searchInput}&`;
+        if (priceFilters[0] !== "")
+            qp += `priceFrom=${priceFilters[0]}&`
+        if (priceFilters[1] !== "")
+            qp += `priceTo=${priceFilters[1]}`
+        if (type !== '')
+            qp += `&type=${type}`;
+        APIService.GetFilteredProducts(qp).then((resp) => {
+            setProducts(resp);
+        })
     }
 
     return (
@@ -120,16 +152,23 @@ export default function Sidebar() {
                                     Mixers
                                 </MenuItem>
                             </SubMenu>
+
+
                             <SubMenu icon={<AiFillDollarCircle/>} title="Price">
                                 <div>
                                     <Pricebar/>
+                                </div>
+                            </SubMenu>
+                            <SubMenu icon={<HiDotsHorizontal />} title = "Other">
+                                <div className="form-group1">
+                                    <Input placeholder="ძიება"></Input>
                                 </div>
                             </SubMenu>
                             <br/>
                             <br/>
                             <button
                                 className={menuCollapse ? "btn5" : "btn6"}
-                                onClick={SearchButtonClick}
+                                onClick={searchButtonClicked}
                             >
                                 {SearchText}
                             </button>
