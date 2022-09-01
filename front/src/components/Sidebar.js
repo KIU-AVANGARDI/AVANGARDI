@@ -83,9 +83,9 @@ export default function Sidebar() {
                 <ProSidebar collapsed={menuCollapse}>
                     <SidebarHeader>
                         <div className="logotext"></div>
-                        <div className="closemenu" onClick={menuIconClick}>
-                            {menuCollapse ? <FiArrowRightCircle/> : <FiArrowLeftCircle/>}
-                        </div>
+                        {/*<div className="closemenu" onClick={menuIconClick}>*/}
+                        {/*    {menuCollapse ? <FiArrowRightCircle/> : <FiArrowLeftCircle/>}*/}
+                        {/*</div>*/}
                     </SidebarHeader>
                     <SidebarContent>
                         <Menu iconShape="square">
