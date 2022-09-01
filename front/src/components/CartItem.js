@@ -1,34 +1,56 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../styles/CartItem.css"
-import {faTrashCan,faMoneyBill1Wave} from "@fortawesome/free-solid-svg-icons"
-import{FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faTrashCan, faMoneyBill1Wave} from "@fortawesome/free-solid-svg-icons"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {useTranslation} from "react-i18next";
 import image from "../assets/images/2.png"
+import APIService from "../APIService";
 
-export default function CartItem({id,name,img,price,setCart}){
+export default function CartItem({id, type, pairId}) {
     //quantity and setQuantity should also be added
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
 
+    useEffect(() => {
+        if (type === "kitchen") {
+            APIService.GetKitchen(id).then((resp) => {
+                setName(resp.name)
+                setImage(resp.image)
+                setPrice(resp.price)
+            })
+        }
+        if (type === "material") {
+            APIService.GetMaterial(id).then((resp) => {
+                setName(resp.name)
+                setImage(resp.image)
+                setPrice(resp.price_square_meter)
+            })
+        }
+    }, [])
     const {t} = useTranslation()
-    const [quantity,setQuantity] = useState(1)
-    const PRICE = 300
-    function removeItem(){
-        //TODO
+    const [quantity, setQuantity] = useState(1)
+    const PRICE = price
+
+    function removeItem() {
+
     }
 
-    function updateQuantity(val){
-        if(!(val === -1 && quantity===1)){
-            setQuantity(quantity+val)
+    function updateQuantity(val) {
+        if (!(val === -1 && quantity === 1)) {
+            setQuantity(quantity + val)
         }
         //TODO
     }
-    return(
-        <div className="cart-item-container" >
+
+    return (
+        <div className="cart-item-container">
             <div className="cart-item-info">
                 <div className="cart-item-image">
                     <img src={image}/>
                 </div>
                 <div className="cart-item-name">
-                    <h4>ძალიან კარგი პროდუქტი</h4>
+                    <h4>{name}</h4>
                 </div>
 
             </div>
@@ -37,21 +59,23 @@ export default function CartItem({id,name,img,price,setCart}){
                 <div className="single-item-quantity-container">
                     <p>{t("productPage:quantity")}</p>
                     <div className="single-item-quantity">
-                        <button onClick={()=>updateQuantity(-1)}>-</button>
+                        <button onClick={() => updateQuantity(-1)}>-</button>
                         <p>{quantity}</p>
-                        <button onClick={()=>updateQuantity(1)}>+</button>
+                        <button onClick={() => updateQuantity(1)}>+</button>
                     </div>
                 </div>
 
-                <div className="cart-whole-price" style={{padding:"10px"}}>
-                    სრული ფასი: <span style={{color:"#e29f4f",fontFamily:"gilory"}}>{PRICE * quantity} ₾</span>
+                <div className="cart-whole-price" style={{padding: "10px"}}>
+                    სრული ფასი: <span style={{color: "#e29f4f", fontFamily: "gilory"}}>{PRICE * quantity} ₾</span>
                 </div>
             </div>
             <div className="cart-item-buttons">
-                <button className="remove"><FontAwesomeIcon icon={faTrashCan}/> წაშლა</button>
+                <button className="remove" onClick={() => {
+                    APIService.DeleteCartItem(
+                    pairId).then((resp) => console.log(resp))
+                }}><FontAwesomeIcon icon={faTrashCan}/> წაშლა</button>
                 <button className="checkout"><FontAwesomeIcon icon={faMoneyBill1Wave}/> გადახდა</button>
             </div>
-
 
 
         </div>

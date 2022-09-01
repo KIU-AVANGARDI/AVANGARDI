@@ -143,7 +143,14 @@ const ProductPage = () => {
                             </div>
                             <hr/>
                             <div className="single-add-to-cart">
-                                <button><FontAwesomeIcon icon={faCartShopping}/> {t("productPage:addToCart")}</button>
+                                <button onClick={() => {
+                                    APIService.AddCartItem({
+                                            "user_id": parseInt(cookie["user_id"]),
+                                            "product_id": parseInt(id),
+                                            "product_type": type,
+                                        }
+                                    ).then((resp) => console.log(resp))
+                                }}><FontAwesomeIcon icon={faCartShopping}/> {t("productPage:addToCart")}</button>
 
                                 <h4>{t("productPage:fullPrice")}<span style={{color:"#e29f4f",fontFamily:"gilory"}}> {price*quantity} ₾</span></h4>
                             </div>
@@ -153,21 +160,21 @@ const ProductPage = () => {
 
                 </div>
             </div>
-            <div style={{padding:"50px 50px 100px 50px",background:"#faf3ed",color:"#4c4c4d"}}>
-                <h2 style={{display:"flex",width:"100%",justifyContent:"start",fontFamily:"gilory"}}>მსგავსი პროდუქცია</h2>
-                <hr/>
-                <br/>
-                <Slider {...settings}>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                </Slider>
-            </div>
+            {/*<div style={{padding:"50px 50px 100px 50px",background:"#faf3ed",color:"#4c4c4d"}}>*/}
+            {/*    <h2 style={{display:"flex",width:"100%",justifyContent:"start",fontFamily:"gilory"}}>მსგავსი პროდუქცია</h2>*/}
+            {/*    <hr/>*/}
+            {/*    <br/>*/}
+            {/*    <Slider {...settings}>*/}
+            {/*        <ProductItem/>*/}
+            {/*        <ProductItem/>*/}
+            {/*        <ProductItem/>*/}
+            {/*        <ProductItem/>*/}
+            {/*        <ProductItem/>*/}
+            {/*        <ProductItem/>*/}
+            {/*        <ProductItem/>*/}
+            {/*        <ProductItem/>*/}
+            {/*    </Slider>*/}
+            {/*</div>*/}
 
             {zoomed && <div className="single-zoom-img-overlay" >
                 <div onClick={
