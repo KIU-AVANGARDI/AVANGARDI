@@ -10,13 +10,17 @@ class Material(models.Model):
     price_100_60 = models.FloatField(null=False, default=0)
     price_worktop_profile = models.FloatField(null=False, default=0)
     material = models.CharField(null=False, default='Material', max_length=50)
-    note = models.TextField(null=True, blank=True)
+    note_ge = models.TextField(null=True, blank=True)
+    note_en = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
+    image2 = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
+    image3 = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
+    image4 = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
 
-    STANDARD = 'ST'
-    STANDARDPLUS = 'SP'
-    AVANGARDI = 'AV'
-    ZERO = 'ZR'
+    STANDARD = 'STANDARD'
+    STANDARDPLUS = 'STANDARD PLUS'
+    AVANGARDI = 'AVANGARDI'
+    ZERO = 'ZERO'
 
     MATERIAL_CATEGORY_CHOICES = [
         (STANDARD, 'Standard'),
@@ -26,7 +30,7 @@ class Material(models.Model):
 
     ]
     category = models.CharField(
-        max_length=2,
+        max_length=20,
         choices=MATERIAL_CATEGORY_CHOICES,
         blank=True,
         null=True

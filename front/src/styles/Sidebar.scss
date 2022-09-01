@@ -1,0 +1,222 @@
+$submenu-bg-color: rgb(214, 253, 221) !default;
+$submenu-bg-color-collapsed: rgb(214, 253, 221) !default;
+// $form-range-thumb-focus-box-shadow-width: $input-focus-width; // For focus box shadow issue in Edge
+// $form-range-thumb-active-bg: tint-color($component-active-bg, 70%);
+// $form-range-thumb-disabled-bg: $gray-500;
+// $form-range-thumb-transition: background-color 0.15s ease-in-out,
+//   $border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+@import "~react-pro-sidebar/dist/scss/styles.scss";
+
+#header {
+  position: fixed;
+  margin-top: 10px;
+  width: 320px;
+  height: 0%;
+  z-index: 5;
+  background-color: white;
+  border-radius: 50px;
+}
+
+#header .pro-sidebar {
+  height: fit-content;
+  border-radius: 50px;
+}
+#header .closemenu {
+  color: #000;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+  line-height: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 22px;
+  top: 55px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+#header .pro-sidebar {
+  width: 100%;
+  min-width: 100%;
+  border-radius: 50px;
+}
+#header .pro-sidebar.collapsed {
+  width: 80px;
+  min-width: 80px;
+  border-radius: 50px;
+}
+#header .pro-sidebar-inner {
+  background-color: rgb(214, 253, 221);
+  box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+}
+#header .pro-sidebar-inner .pro-sidebar-layout {
+  overflow-y: hidden;
+  border-radius: 50px;
+}
+#header .pro-sidebar-inner .pro-sidebar-layout .logotext p {
+  font-size: 20px;
+  padding: 0 20px;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50px;
+}
+#header .pro-sidebar-inner .pro-sidebar-layout ul {
+  padding: 0 5px;
+  border-radius: 50px;
+}
+#header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
+  color: #000;
+  margin: 10px 0px;
+  font-weight: bold;
+  border-radius: 50px;
+}
+#header
+.pro-sidebar-inner
+.pro-sidebar-layout
+ul
+.pro-inner-item
+.pro-icon-wrapper {
+  background-color: #58e276;
+  color: #000;
+  border-radius: 3px;
+  border-radius: 50px;
+}
+#header
+.pro-sidebar-inner
+.pro-sidebar-layout
+ul
+.pro-inner-item
+.pro-icon-wrapper
+.pro-item-content {
+  color: #000;
+  border-radius: 50px;
+}
+#header .pro-sidebar-inner .pro-sidebar-layout .active {
+  background-image: linear-gradient(0deg, #44c760 0%, #7acf8f 100%);
+  border-radius: 50px;
+}
+#header .logo {
+  padding: 20px;
+  border-radius: 50px;
+}
+
+@media only screen and (max-width: 720px) {
+  html {
+    overflow: hidden;
+  }
+}
+
+.form-group1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+  text-align: center;
+  label {
+    font-family: "BPG QuadroSquare", sans-serif;
+    font-size: 15px;
+    text-align: center;
+  }
+  input {
+    margin-top: 6px;
+    min-width: 5px;
+    width: 180px;
+    height: 37px;
+    padding: 0px 10px;
+    font-size: 16px;
+    font-family: "BPG QuadroSquare", sans-serif;
+    background-color: #f3f3f3;
+    border-color: rgb(52, 184, 48);
+    border-width: 1px;
+    border-radius: 4px;
+    margin-bottom: 31px;
+    transition: all 250ms ease-in-out;
+    &:placeholder-shown {
+      font-family: "BPG QuadroSquare", sans-serif;
+    }
+    &:hover {
+      background-color: #ffffff;
+      box-shadow: 0px 0px 14px 0.3px #2bbe37c2;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0px 0px 12px 0.8px #00ff22b2;
+    }
+  }
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04aa6d;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04aa6d;
+  cursor: pointer;
+}
+
+.btn6 {
+  font-family: "BPG QuadroSquare", sans-serif;
+  border-radius: 20px;
+  background: #256ce1;
+  padding: 12px 60px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 3px;
+  margin-left: 10%;
+  text-align: center;
+}
+
+.btn6:hover {
+  transition: all 0.2s ease-in-out;
+  background: rgb(248, 156, 156);
+  color: #000000;
+}
+
+.btn5 {
+  font-family: "BPG QuadroSquare", sans-serif;
+  border-radius: 20px;
+  background: #256ce1;
+  padding: 9px 11px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 3px;
+  margin-left: 25%;
+  text-align: center;
+}
+
+.btn5:hover {
+  transition: all 0.2s ease-in-out;
+  background: rgb(248, 156, 156);
+  color: #000000;
+}

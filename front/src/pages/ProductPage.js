@@ -102,9 +102,9 @@ const ProductPage = () => {
                             </div>
                             <div className="single-small-images">
                                 <div><img onClick={handleFocus} src={item.image}/></div>
-                                <div><img onClick={handleFocus} src={temp}/></div>
-                                <div><img onClick={handleFocus}/></div>
-                                <div><img onClick={handleFocus}/></div>
+                                <div><img onClick={handleFocus} src={item.image2}/></div>
+                                <div><img onClick={handleFocus} src={item.image3}/></div>
+                                <div><img onClick={handleFocus} src={item.image4}/></div>
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,8 @@ const ProductPage = () => {
                         <hr/>
 
                         <div className="single-item-note">
-                            {item.note}
+
+                            {localStorage.getItem("lng") === "en" ? item.note_en : item.note_ge}
                         </div>
                     </div>
 
