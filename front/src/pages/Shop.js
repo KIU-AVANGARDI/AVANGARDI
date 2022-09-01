@@ -26,18 +26,17 @@ export const Shop = () => {
 
     return (
         <div>
-            <div className="product-list-shop">
+            <div className="shop-page">
                 <Sidebar/>
-            </div>
-            <div className="shoppage">
-                <br/>
-
                 <div className="product-list-shop">
-                    <h2>{t("home:kitchenEquipment")}</h2>
+                    {/*<h2>{t("home:kitchenEquipment")}</h2>*/}
                     <div className="products-shop">
                         {kitchen.map((p) => (
                             <ProductItem key={p.id} id={p.id} name={p.name} img={p.image} price={p.price}
                                          type="kitchen"/>
+                        ))}
+                        {materials.map((p) => (
+                            <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price_square_meter} type = "material"/>
                         ))}
                     </div>
                 </div>

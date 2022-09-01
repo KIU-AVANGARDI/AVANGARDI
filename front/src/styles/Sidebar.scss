@@ -1,5 +1,5 @@
-$submenu-bg-color: rgb(214, 253, 221) !default;
-$submenu-bg-color-collapsed: rgb(214, 253, 221) !default;
+$submenu-bg-color: #efdfce !default;
+$submenu-bg-color-collapsed: #efdfce !default;
 // $form-range-thumb-focus-box-shadow-width: $input-focus-width; // For focus box shadow issue in Edge
 // $form-range-thumb-active-bg: tint-color($component-active-bg, 70%);
 // $form-range-thumb-disabled-bg: $gray-500;
@@ -9,21 +9,19 @@ $submenu-bg-color-collapsed: rgb(214, 253, 221) !default;
 @import "~react-pro-sidebar/dist/scss/styles.scss";
 
 #header {
-  position: fixed;
-  margin-top: 10px;
+  font-family: gilory;
   width: 320px;
-  height: 0%;
   z-index: 5;
   background-color: white;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 #header .pro-sidebar {
   height: fit-content;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 #header .closemenu {
-  color: #000;
+  color: #4c4c4d;
   position: absolute;
   right: 0;
   z-index: 9999;
@@ -38,38 +36,37 @@ $submenu-bg-color-collapsed: rgb(214, 253, 221) !default;
 #header .pro-sidebar {
   width: 100%;
   min-width: 100%;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 #header .pro-sidebar.collapsed {
   width: 80px;
   min-width: 80px;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 #header .pro-sidebar-inner {
-  background-color: rgb(214, 253, 221);
-  box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 50px;
+  background-color: #d8a975;
+  border-radius: 10px;
 }
 #header .pro-sidebar-inner .pro-sidebar-layout {
   overflow-y: hidden;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 #header .pro-sidebar-inner .pro-sidebar-layout .logotext p {
   font-size: 20px;
   padding: 0 20px;
-  color: #000;
+  color: #4c4c4d;
   font-weight: bold;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 #header .pro-sidebar-inner .pro-sidebar-layout ul {
   padding: 0 5px;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
-  color: #000;
+  color: #4c4c4d;
   margin: 10px 0px;
   font-weight: bold;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 #header
 .pro-sidebar-inner
@@ -77,10 +74,10 @@ $submenu-bg-color-collapsed: rgb(214, 253, 221) !default;
 ul
 .pro-inner-item
 .pro-icon-wrapper {
-  background-color: #58e276;
-  color: #000;
+  background-color: #e29f4f;
+  color: white;
   border-radius: 3px;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 #header
 .pro-sidebar-inner
@@ -89,16 +86,16 @@ ul
 .pro-inner-item
 .pro-icon-wrapper
 .pro-item-content {
-  color: #000;
-  border-radius: 50px;
+  color: #67686a;
+  border-radius: 10px;
 }
 #header .pro-sidebar-inner .pro-sidebar-layout .active {
-  background-image: linear-gradient(0deg, #44c760 0%, #7acf8f 100%);
-  border-radius: 50px;
+  background: #d8a975;
+  border-radius: 10px;
 }
 #header .logo {
   padding: 20px;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 720px) {
@@ -127,7 +124,7 @@ ul
     font-size: 16px;
     font-family: "BPG QuadroSquare", sans-serif;
     background-color: #f3f3f3;
-    border-color: rgb(52, 184, 48);
+    border-color: #e29f4f;
     border-width: 1px;
     border-radius: 4px;
     margin-bottom: 31px;
@@ -196,7 +193,7 @@ ul
 .btn6:hover {
   transition: all 0.2s ease-in-out;
   background: rgb(248, 156, 156);
-  color: #000000;
+  color: #4c4c4d;
 }
 
 .btn5 {
@@ -218,5 +215,5 @@ ul
 .btn5:hover {
   transition: all 0.2s ease-in-out;
   background: rgb(248, 156, 156);
-  color: #000000;
+  color: #4c4c4d;
 }
