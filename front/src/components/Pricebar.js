@@ -3,7 +3,7 @@ import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import RangeSlider from "react-bootstrap-range-slider";
 
 export default function Pricebar() {
-    const [valueMax, setValueMax] = useState(25);
+    const [valueMax, setValueMax] = useState(100);
     const [valueMin, setValueMin] = useState(0);
 
     return (
@@ -13,7 +13,7 @@ export default function Pricebar() {
             <RangeSlider
                 value={valueMin}
                 min="0"
-                max="25"
+                max="100"
                 onChange={(changeEvent) => setValueMin(changeEvent.target.value)}
             />
             <br />
@@ -21,11 +21,11 @@ export default function Pricebar() {
             <RangeSlider
                 value={valueMax}
                 min="0"
-                max="25"
+                max="100"
                 onChange={(changeEvent) => setValueMax(changeEvent.target.value)}
             />
             <h4 style={{ color: "black" }}>
-                {valueMin} - {valueMax}ლარი/(კგ,ლი)
+                {valueMin} - {valueMax} ₾
             </h4>
         </div>
     );

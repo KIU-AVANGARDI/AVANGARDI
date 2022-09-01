@@ -5,12 +5,18 @@ import ProductItem from "../components/ProductItem";
 import CarouselC from "../components/CarouselC";
 import {useTranslation} from "react-i18next";
 import Sidebar from "../components/Sidebar";
+import {useParams} from "react-router-dom";
 
 
-export const Shop = () => {
+export const Shop = ({products, setProducts}) => {
     const {t} = useTranslation()
     const [materials, setMaterials] = useState([])
     const [kitchen, setKitchen] = useState([])
+    const params = useParams()
+    const ct = params["category"]
+    const pf = params["pfrom"]
+    const pt = params["pto"]
+    const kw = params["kword"]
 
     useEffect(() => {
         APIService.GetAllMaterials().then((resp) => {
