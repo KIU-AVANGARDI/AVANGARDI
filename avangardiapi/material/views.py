@@ -40,7 +40,7 @@ class SearchMaterialView(generics.ListAPIView):
         kword = self.request.query_params.get("kword")
         queryset = list(queryset)
         if kword is not None:
-            queryset = list(filter(lambda x: kword.lower() in x.name.lower(),queryset))
+            queryset = list(filter(lambda x: kword.lower() in x.name_ge.lower(),queryset))
         if category is not None:
             categories = category.split('_')
             queryset = list(filter(lambda x: x.category in categories, queryset))

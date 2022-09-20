@@ -34,7 +34,7 @@ export const HomePage = () => {
                     <h2>{t("home:worktops")}</h2>
                     <div className="products">
                         {materials.map((p) => (
-                            <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price_square_meter} type = "material"/>
+                            <ProductItem key={p.id} id = {p.id} name={localStorage.getItem("lng") === "en" ? p.name_en : p.name_ge} img={p.image} price={p.price_square_meter} type = "material"/>
                         ))}
                     </div>
                 </div>
@@ -42,7 +42,8 @@ export const HomePage = () => {
                     <h2>{t("home:kitchenEquipment")}</h2>
                     <div className="products">
                         {kitchen.map((p) => (
-                            <ProductItem key={p.id} id = {p.id} name={p.name} img={p.image} price={p.price} type = "kitchen"/>
+
+                            <ProductItem key={p.id} id = {p.id} name={localStorage.getItem("lng") === "en" ? p.name_en : p.name_ge} img={p.image} price={p.price} type = "kitchen"/>
                         ))}
                     </div>
                 </div>

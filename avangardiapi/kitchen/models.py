@@ -2,7 +2,8 @@ from django.db import models
 
 
 class Kitchen(models.Model):
-    name = models.CharField(null=False,max_length=255,unique=False)
+    name_ge = models.CharField(null=False,max_length=255,unique=False, default="სამზარეულო")
+    name_en = models.CharField(null=False, max_length=255, unique=False, default="Kitchen")
     height = models.FloatField(null=False, default=0)
     width = models.FloatField(null=False, default=0)
     length = models.FloatField(null=False, default=0)
@@ -32,4 +33,4 @@ class Kitchen(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.name_ge
