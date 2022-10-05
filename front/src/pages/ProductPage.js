@@ -9,6 +9,8 @@ import Slider from "react-slick"
 import {useTranslation} from "react-i18next";
 import temp from "../assets/images/2.png"
 import ProductItem from "../components/ProductItem";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductPage = () => {
     const {t} = useTranslation()
@@ -21,7 +23,23 @@ const ProductPage = () => {
     const [quantity,setQuantity] = useState(1)
     const [currentImg,setCurrentImg] = useState(null)
 
+    const notify = () => {
+        toast.success('პროდუქტი წარმატებით დაემატა', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
 
+    const [mesShown,setMesShown] = useState(false)
+    function k(){
+        setMesShown(false)
+        setMesShown(true)
+    }
 
     function handleFocus(e){
         setCurrentImg(e.target.attributes.src.value)
@@ -143,6 +161,7 @@ const ProductPage = () => {
                             </div>
                             <hr/>
                             <div className="single-add-to-cart">
+                                <h4>{t("productPage:fullPrice")}<span style={{color:"#e29f4f",fontFamily:"gilory"}}> {price*quantity} ₾</span></h4>
                                 <button onClick={() => {
                                     APIService.AddCartItem({
                                             "user_id": parseInt(cookie["user_id"]),
@@ -150,9 +169,11 @@ const ProductPage = () => {
                                             "product_type": type,
                                         }
                                     ).then((resp) => console.log(resp))
+                                    notify()
                                 }}><FontAwesomeIcon icon={faCartShopping}/> {t("productPage:addToCart")}</button>
 
-                                <h4>{t("productPage:fullPrice")}<span style={{color:"#e29f4f",fontFamily:"gilory"}}> {price*quantity} ₾</span></h4>
+
+
                             </div>
 
                         </div>
@@ -182,6 +203,18 @@ const ProductPage = () => {
                 }><FontAwesomeIcon id="xMark" icon={faXmark}/></div>
                 <img src={currentImg}/>
             </div>}
+            <ToastContainer
+                theme="colored"
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 

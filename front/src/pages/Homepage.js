@@ -4,6 +4,7 @@ import APIService from "../APIService";
 import ProductItem from "../components/ProductItem";
 import CarouselC from "../components/CarouselC";
 import  {useTranslation} from "react-i18next";
+import YouTube from "../components/YouTube";
 
 
 export const HomePage = () => {
@@ -48,6 +49,7 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
+            <YouTube id="bjUeGOxnZzo"/>
         </div>
     )
 }
