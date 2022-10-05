@@ -45,7 +45,7 @@
     margin-bottom: 30px;
 }
 
-.reg-wrapper button{
+.reg-wrapper form button{
     border-radius: 5px;
     font-size: 25px;
     cursor: pointer;
@@ -61,7 +61,7 @@
 
 }
 
-.reg-wrapper button:hover{
+.reg-wrapper  form button:hover{
     background: #e19f4e;
     color: #4c4c4d;
 }

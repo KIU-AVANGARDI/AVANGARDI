@@ -45,7 +45,7 @@
     margin-bottom: 30px;
 }
 
-.auth-wrapper button{
+.auth-wrapper form button{
     border-radius: 5px;
     font-size: 25px;
     cursor: pointer;
@@ -61,7 +61,7 @@
 
 }
 
-.auth-wrapper button:hover{
+.auth-wrapper form button:hover{
     background: #e19f4e;
     color: #4c4c4d;
 }

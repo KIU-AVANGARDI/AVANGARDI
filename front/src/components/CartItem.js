@@ -5,12 +5,30 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {useTranslation} from "react-i18next";
 import image from "../assets/images/2.png"
 import APIService from "../APIService";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {useNavigate} from "react-router-dom";
+
 
 export default function CartItem({id, type, pairId}) {
     //quantity and setQuantity should also be added
+    const navigate = useNavigate()
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [image, setImage] = useState("")
+
+
+    const notify = () => {
+        toast.info('პროდუქტი წარმატებით წაიშალა', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
 
     useEffect(() => {
         if (type === "kitchen") {
@@ -73,11 +91,24 @@ export default function CartItem({id, type, pairId}) {
                 <button className="remove" onClick={() => {
                     APIService.DeleteCartItem(
                     pairId).then((resp) => console.log(resp))
+                    notify()
+                    navigate(0)
                 }}><FontAwesomeIcon icon={faTrashCan}/> წაშლა</button>
                 <button className="checkout"><FontAwesomeIcon icon={faMoneyBill1Wave}/> გადახდა</button>
             </div>
 
-
+            <ToastContainer
+                theme="light"
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     )
 }
