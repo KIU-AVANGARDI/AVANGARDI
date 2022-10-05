@@ -1,3 +1,7 @@
+from asyncio import Event
+
+from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import get_object_or_404, render
 from django_rest.http import status
 from rest_framework import generics, permissions
 from rest_framework.response import Response
@@ -38,13 +42,11 @@ class AddCartView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class DeleteCartView(ModelViewSet):
-    queryset = Cart.objects.all()
-    serializer_class = serializers.CartSerializer
-    http_method_names = ['delete', ]
+class DeleteCartView(APIView):
+    def delete(self, request, pk, format=None):
+        event = self.get_object(pk)
+        event.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def destroy(self, request, pk=None, *args, **kwargs):
-        print(pk)
-        instance = self.get_object()
-        # you custom logic #
-        return super(DeleteCartView, self).destroy(request, pk, *args, **kwargs)
+    def get_object(self, pk):
+        return Cart.objects.get(pk=pk)

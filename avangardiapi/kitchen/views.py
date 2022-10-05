@@ -44,6 +44,7 @@ class SearchKitchenView(generics.ListAPIView):
             queryset = list(filter(lambda x: kword.lower() in x.name_ge.lower(),queryset))
         if category is not None:
             categories = category.split('_')
+            print(categories)
             queryset = list(filter(lambda x: x.category in categories, queryset))
         if price_from is not None:
             try:

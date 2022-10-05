@@ -6,4 +6,4 @@ class Cart(models.Model):
     product_id = models.IntegerField()
     product_type = models.CharField(default="material", max_length=20)
     def __str__(self):
-        return self.name
+        return self.product_type

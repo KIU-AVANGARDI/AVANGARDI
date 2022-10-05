@@ -20,7 +20,8 @@ i18next
             "reg",
             "forgot",
             "productPage",
-            "contact"
+            "contact",
+            "sidebar"
         ],
         react: { useSuspense: false },
 

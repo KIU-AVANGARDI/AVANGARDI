@@ -23,8 +23,11 @@ import {GiKitchenTap, GiWoodBeam} from "react-icons/gi";
 import {Input} from "reactstrap";
 import APIService from "../APIService";
 import {HiDotsHorizontal} from "react-icons/hi";
+import {useTranslation} from "react-i18next";
 
-export default function Sidebar() {
+export default function Sidebar({handleChange, setKitchenSelected}) {
+    const {t} = useTranslation()
+
     const [menuCollapse, setMenuCollapse] = useState(false);
     const [StandardActive, setStandardActive] = useState(false);
     const [StandardPlusActive, setStandardPlusActive] = useState(false);
@@ -37,76 +40,80 @@ export default function Sidebar() {
     const [MixersActive, setMixersActive] = useState(false);
 
     const [SearchText, setSearchText] = useState(<BsSearch/>);
+    const [SearchInput, setSearchInput] = useState("");
     const [products, setProducts] = useState([]);
     const menuIconClick = () => {
         menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
-        menuCollapse ? setSearchText("ძიება") : setSearchText(<BsSearch/>);
+        menuCollapse ? setSearchText(t("sidebar:search")) : setSearchText(<BsSearch/>);
     };
+
+    const [priceFilters, setPriceFilters] = useState([0, 1000])
+
+    const setPriceFiltersByIndex = (index, value) => {
+        if (index === 0)
+            setPriceFilters([value, priceFilters[1]])
+        else
+            setPriceFilters([priceFilters[0], value])
+
+    }
 
     const StandardClick = () => {
         StandardActive ? setStandardActive(false) : setStandardActive(true);
+        setKitchenFalse()
     };
     const WWorktopClick = () => {
         WWorktopActive ? setWWorktopActive(false) : setWWorktopActive(true);
+        setKitchenFalse()
     };
 
     const SDLClick = () => {
         SDLActive ? setSDLActive(false) : setSDLActive(true);
+        setKitchenFalse()
     };
     const CLWClick = () => {
         CLWActive ? setCLWActive(false) : setCLWActive(true);
+        setKitchenFalse()
     };
     const SAWClick = () => {
         SAWActive ? setSAWActive(false) : setSAWActive(true);
+        setKitchenFalse()
     };
     const MixersClick = () => {
         MixersActive ? setMixersActive(false) : setMixersActive(true);
+        setMaterialsFalse()
     };
     const StandardPlusClick = () => {
         StandardPlusActive ? setStandardPlusActive(false) : setStandardPlusActive(true);
+        setKitchenFalse()
     };
 
     const WorktopClick = () => {
         WorktopActive ? setWorktopActive(false) : setWorktopActive(true);
+        setKitchenFalse()
     };
 
     const SinksClick = () => {
         SinksActive ? setSinksActive(false) : setSinksActive(true);
+        setMaterialsFalse()
     };
 
     let navigate = useNavigate();
 
-    const searchButtonClicked = (searchInput, priceFilters, categoryFilters) => {
-        const types = new Map(Object.entries(categoryFilters));
-        const dict = {
-            "STANDARD" : 'STANDARD',
-            "STANDARDPLUS" : 'STANDARD PLUS',
-            "SOLIDDECORATIVELAMINATE":"SOLID DECORATIVE LAMINATE",
-            "WORKTOPS":"WORKTOPS",
-            "WOODWORKTOPS":"WOOD WORKTOPS",
-            "COMPACTLAMINATEWORKTOPS":"COMPACT LAMINATE WORKTOPS",
-            "SOLIDACRYLICWORKTOPS":"SOLID ACRYLIC WORKTOPS"
-        }
-        let type = '';
-        types.forEach((value, key) => {
-            if (value === true) {
-                type += dict[key];
-                type += "_";
-            }
-        });
-        type.slice(0, -1);
-        let qp = ``;
-        if (searchInput !== "")
-            qp += `kword=${searchInput}&`;
-        if (priceFilters[0] !== "")
-            qp += `priceFrom=${priceFilters[0]}&`
-        if (priceFilters[1] !== "")
-            qp += `priceTo=${priceFilters[1]}`
-        if (type !== '')
-            qp += `&type=${type}`;
-        APIService.GetFilteredProducts(qp).then((resp) => {
-            setProducts(resp);
-        })
+    const setKitchenFalse = () => {
+        setSinksActive(false)
+        setMixersActive(false)
+        setKitchenSelected(false)
+    }
+
+    const setMaterialsFalse = () => {
+        setStandardActive(false)
+        setStandardPlusActive(false)
+        setSDLActive(false)
+        setWorktopActive(false)
+        setWWorktopActive(false)
+        setCLWActive(false)
+        setSAWActive(false)
+        setKitchenSelected(true)
     }
 
     return (
@@ -121,54 +128,64 @@ export default function Sidebar() {
                     </SidebarHeader>
                     <SidebarContent>
                         <Menu iconShape="square">
-                            <SubMenu icon={<GiWoodBeam/>} title="Materials">
+                            <SubMenu icon={<GiWoodBeam/>} title={t("sidebar:materials")}>
                                 <MenuItem active={StandardActive} onClick={StandardClick}>
-                                    Standard
+                                    {t("sidebar:standard")}
                                 </MenuItem>
                                 <MenuItem active={StandardPlusActive} onClick={StandardPlusClick}>
-                                    Standard+
+                                    {t("sidebar:standardplus")}
                                 </MenuItem>
                                 <MenuItem active={SDLActive} onClick={SDLClick}>
-                                    Solid Decorative Laminate
+                                    {t("sidebar:sdl")}
                                 </MenuItem>
                                 <MenuItem active={WorktopActive} onClick={WorktopClick}>
-                                    Worktops
+                                    {t("sidebar:worktops")}
                                 </MenuItem>
                                 <MenuItem active={WWorktopActive} onClick={WWorktopClick}>
-                                    Wooden Worktops
+                                    {t("sidebar:wworktops")}
                                 </MenuItem>
                                 <MenuItem active={CLWActive} onClick={CLWClick}>
-                                    Compact laminate Worktops
+                                    {t("sidebar:clw")}
                                 </MenuItem>
                                 <MenuItem active={SAWActive} onClick={SAWClick}>
-                                    Solid Acrylic Worktops
+                                    {t("sidebar:saw")}
                                 </MenuItem>
                             </SubMenu>
-                            <SubMenu icon={<GiKitchenTap/>} title="Kitchen">
+                            <SubMenu icon={<GiKitchenTap/>} title={t("sidebar:kitchen")}>
                                 <MenuItem active={SinksActive} onClick={SinksClick}>
-                                    Sinks
+                                    {t("sidebar:sinks")}
                                 </MenuItem>
                                 <MenuItem active={MixersActive} onClick={MixersClick}>
-                                    Mixers
+                                    {t("sidebar:mixers")}
                                 </MenuItem>
                             </SubMenu>
 
 
-                            <SubMenu icon={<AiFillDollarCircle/>} title="Price">
+                            <SubMenu icon={<AiFillDollarCircle/>} title={t("sidebar:price")}>
                                 <div>
-                                    <Pricebar/>
+                                    <Pricebar priceFilters={priceFilters} setPriceFilters={setPriceFiltersByIndex}/>
                                 </div>
                             </SubMenu>
-                            <SubMenu icon={<HiDotsHorizontal />} title = "Other">
+                            <SubMenu icon={<HiDotsHorizontal/>} title={t("sidebar:keyword")}>
                                 <div className="form-group1">
-                                    <Input placeholder="ძიება"></Input>
+                                    <Input placeholder={t("sidebar:search")} onChange={(e) => setSearchInput(e.target.value)}></Input>
                                 </div>
                             </SubMenu>
                             <br/>
                             <br/>
                             <button
                                 className={menuCollapse ? "btn5" : "btn6"}
-                                onClick={searchButtonClicked}
+                                onClick={() => handleChange(priceFilters, {
+                                    "STANDARD": StandardActive,
+                                    "STANDARDPLUS": StandardPlusActive,
+                                    "SOLIDDECORATIVELAMINATE": SDLActive,
+                                    "WORKTOPS": WorktopActive,
+                                    "WOODWORKTOPS": WWorktopActive,
+                                    "COMPACTLAMINATEWORKTOPS": CLWActive,
+                                    "SOLIDACRYLICWORKTOPS": SAWActive,
+                                    "SINKS": SinksActive,
+                                    "MIXERS": MixersActive
+                                }, SearchInput)}
                             >
                                 {SearchText}
                             </button>

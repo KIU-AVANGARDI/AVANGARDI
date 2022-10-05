@@ -17,12 +17,12 @@ class Kitchen(models.Model):
     image3 = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
     image4 = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
 
-    SINK = 'SINK'
-    MIXER = 'MIXER'
+    SINKS = 'SINKS'
+    MIXERS = 'MIXERS'
 
     KITCHEN_CATEGORY_CHOICES = [
-        (SINK, 'Sink'),
-        (MIXER, 'Mixer'),
+        (SINKS, 'Sinks'),
+        (MIXERS, 'Mixers'),
 
     ]
     category = models.CharField(

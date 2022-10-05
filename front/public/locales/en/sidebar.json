@@ -1,0 +1,18 @@
+{
+  "materials": "Materials",
+  "kitchen": "Kitchen",
+  "price": "Price",
+  "keyword": "Keyword",
+  "standard": "Standard",
+  "standardplus": "Standard+",
+  "sdl": "Solid Decorative Laminate",
+  "worktops": "Worktops",
+  "wworktops": "Wooden Worktops",
+  "clw": "Compact Laminate Worktops",
+  "saw": "Solid Acrylic Workops",
+  "sinks": "Sinks",
+  "mixers": "Mixers",
+  "search": "Search",
+  "minprice": "Minimum Price",
+  "maxprice": "Maximum Price"
+}
