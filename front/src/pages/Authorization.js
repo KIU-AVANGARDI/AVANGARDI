@@ -5,6 +5,8 @@ import {useState} from "react";
 import {useCookies} from "react-cookie";
 import APIService from "../APIService";
 import {useTranslation} from "react-i18next";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Authorization (){
     const {t} = useTranslation()
@@ -15,6 +17,18 @@ export default function Authorization (){
         ["user_id"],
         ["access_token"]
     );
+
+    const notify = () => {
+        toast.error('ავტორიზაცია ვერ მოხერხდა', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
 
     const login = async () => {
         const resp = await APIService.LoginUser({email, password})
@@ -36,9 +50,22 @@ export default function Authorization (){
                 <button type="submit" onClick={(e) => {
                     e.preventDefault()
                     login()
+                    notify()
                 }}>{t("auth:login")}</button>
                 <p>{t("auth:forgot")}<a href="/forgot-pass">{t("auth:click")}</a></p>
             </form>
+            <ToastContainer
+                theme="colored"
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     )
 }
