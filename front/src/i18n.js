@@ -21,7 +21,8 @@ i18next
             "forgot",
             "productPage",
             "contact",
-            "sidebar"
+            "sidebar",
+            "aboutus"
         ],
         react: { useSuspense: false },
 
