@@ -24,7 +24,7 @@ const ProductPage = () => {
     const [currentImg,setCurrentImg] = useState(null)
 
     const notify = () => {
-        toast.success('პროდუქტი წარმატებით დაემატა', {
+        toast.success(t("common:cartAdd"), {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,

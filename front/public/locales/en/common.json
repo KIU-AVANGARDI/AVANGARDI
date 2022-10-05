@@ -10,5 +10,7 @@
   "logOut": "Log out",
   "usefulLinks": "Useful Links",
   "contact": "Contact",
-  "address" : "66 Peikarta St, T'bilisi, Georgia"
+  "address" : "66 Peikarta St, T'bilisi, Georgia",
+  "registrationError": "Registration failed",
+  "cartAdd": "This item has been successfully added to your card"
 }
