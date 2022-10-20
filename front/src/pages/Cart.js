@@ -14,12 +14,17 @@ export const Cart = () => {
         })
     }, [])
     return(
-        <div className="cart-container">
-            {
-                cartItems.map((x) =>
-                    <CartItem id={x[0]} type={x[1]} pairId={x[2]}/>
-                )
-            }
-        </div>
+        <>
+            <div className="cart-container">
+                <div className="buy-all">
+                    <button>იყიდე ყველა</button>
+                </div>
+                {
+                    cartItems.map((x) =>
+                        <CartItem id={x[0]} type={x[1]} pairId={x[2]}/>
+                    )
+                }
+            </div>
+        </>
     )
 }

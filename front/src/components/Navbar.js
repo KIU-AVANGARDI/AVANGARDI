@@ -10,7 +10,7 @@ import {useNavigate} from "react-router-dom";
 import ge from "../assets/images/ge.svg"
 import gb from "../assets/images/gb.svg"
 import  {useTranslation} from "react-i18next";
-
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Navbar(props) {
     const {t,i18n} = useTranslation()
@@ -84,7 +84,14 @@ export default function Navbar(props) {
                         <li><a href="/shop">{t("common:shop")}</a></li>
                         <li><a href="/vacancy">{t("common:vacancy")}</a></li>
                         <li><a href="/contact">{t("common:contact")}</a></li>
-                        <li><a href="/about-us">{t("common:aboutUs")}</a></li>
+                        <li>
+                            <NavDropdown title="კომპანნია" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/about-us">ჩვენს შესახებ</NavDropdown.Item>
+                                <NavDropdown.Item href="/faq">ხშირად დასმული კითხვები</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">ბლოგი</NavDropdown.Item>
+                            </NavDropdown>
+                        </li>
+
                     </ul>
                 </div>
 

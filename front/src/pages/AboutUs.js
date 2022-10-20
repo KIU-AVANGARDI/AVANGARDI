@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "../styles/AboutUs.css"
-import img from "../assets/images/2.png"
+import img from "../assets/images/aboutUs.jpg"
 import {useTranslation} from "react-i18next";
 
 

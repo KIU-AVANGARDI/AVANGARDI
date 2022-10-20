@@ -58,7 +58,7 @@ export default function CartItem({id, type, pairId}) {
         if (!(val === -1 && quantity === 1)) {
             setQuantity(quantity + val)
         }
-        //TODO
+
     }
 
     return (
@@ -94,7 +94,7 @@ export default function CartItem({id, type, pairId}) {
                     notify()
                     navigate(0)
                 }}><FontAwesomeIcon icon={faTrashCan}/> წაშლა</button>
-                <button className="checkout"><FontAwesomeIcon icon={faMoneyBill1Wave}/> გადახდა</button>
+                <button className="checkout"><FontAwesomeIcon icon={faMoneyBill1Wave}/> ყიდვა</button>
             </div>
 
             <ToastContainer

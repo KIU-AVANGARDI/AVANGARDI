@@ -5,3 +5,22 @@
     align-items: center;
     min-height: calc(100vh - 150px);
 }
+
+.buy-all{
+    padding: 20px;
+}
+
+.buy-all button{
+    padding: 8px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: all .25s;
+    width: 150px;
+    background: #29BB89;
+    font-family: gilory;
+}
+
+.buy-all button:hover{
+    background: #1E6F5C;
+}

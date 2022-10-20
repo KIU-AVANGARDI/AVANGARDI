@@ -70,6 +70,7 @@
     color: white;
     border-radius: 5px;
     transition: all .25s;
+    width: 150px;
 }
 
 .remove{
@@ -78,6 +79,7 @@
 
 .remove:hover{
     background: #b24435;
+
 }
 
 .checkout{
@@ -119,6 +121,9 @@
 }
 
 @media (max-width: 500px) {
+    .cart-item-buttons button{
+        width: 100px;
+    }
     .cart-item-container{
         padding: 10px;
     }
