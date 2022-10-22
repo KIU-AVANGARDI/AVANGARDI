@@ -11,6 +11,7 @@ import temp from "../assets/images/2.png"
 import ProductItem from "../components/ProductItem";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Calculator from "../components/Calculator";
 
 const ProductPage = () => {
     const {t} = useTranslation()
@@ -172,11 +173,12 @@ const ProductPage = () => {
                                     notify()
                                 }}><FontAwesomeIcon icon={faCartShopping}/> {t("productPage:addToCart")}</button>
 
-
-
                             </div>
-
                         </div>
+                        <div className="nonstandard">
+                            <Calculator/>
+                        </div>
+
                     </div>
 
                 </div>

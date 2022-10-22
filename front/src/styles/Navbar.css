@@ -7,6 +7,8 @@ nav{
             inset 0 13px 19px -15px #67686a;
 }
 
+
+
 .language-changer{
     padding: 10px;
     border-radius: 0 10px 10px 0;
@@ -146,6 +148,7 @@ nav{
 .links li{
     list-style: none;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0 10px 0 10px;

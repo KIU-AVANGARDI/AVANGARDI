@@ -16,6 +16,8 @@ import {Cart} from "./pages/Cart";
 import {Shop} from "./pages/Shop";
 import Contact from "./pages/Contact";
 import CartItem from "./components/CartItem"
+import Calculator from "./components/Calculator";
+import FAQ from "./pages/FAQ";
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
                     <Route path="/shop" element={<Shop/>} />
                     <Route path="/shop/:category/:pfrom/:pto/:kword" element={<Shop/>} />
                     <Route path="/contact" element={<Contact/>} />
+                    <Route path="/calculator" element={<Calculator/>} />
+                    <Route path="/faq" element={<FAQ/>} />
                 </Routes>
                 <Footer/>
             </div>

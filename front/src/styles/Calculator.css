@@ -1,0 +1,28 @@
+.calculator{
+    margin-top: 20px;
+    font-family: dejavu;
+    font-weight: 900;
+}
+
+.config{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.calculate{
+    font-family: gilory;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 6px 13px 6px 13px;
+    background: #d8a975;
+    border: none;
+    color: #fff;
+    transition: 0.25s;
+    margin-bottom: 20px;
+}
+
+.calculate:hover{
+    background: #e19f4e;
+    color: #4c4c4d;
+}
