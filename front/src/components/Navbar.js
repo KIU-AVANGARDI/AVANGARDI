@@ -85,10 +85,10 @@ export default function Navbar(props) {
                         <li><a href="/vacancy">{t("common:vacancy")}</a></li>
                         <li><a href="/contact">{t("common:contact")}</a></li>
                         <li>
-                            <NavDropdown title="კომპანნია" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/about-us">ჩვენს შესახებ</NavDropdown.Item>
-                                <NavDropdown.Item href="/faq">ხშირად დასმული კითხვები</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">ბლოგი</NavDropdown.Item>
+                            <NavDropdown title={t("common:company")} id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/about-us">{t("common:aboutUs")}</NavDropdown.Item>
+                                <NavDropdown.Item href="/faq">{t("common:faq")}</NavDropdown.Item>
+                                <NavDropdown.Item href="/blog">{t("common:blog")}</NavDropdown.Item>
                             </NavDropdown>
                         </li>
 
