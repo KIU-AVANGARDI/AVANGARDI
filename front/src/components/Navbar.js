@@ -88,7 +88,7 @@ export default function Navbar(props) {
                             <NavDropdown title="კომპანნია" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/about-us">ჩვენს შესახებ</NavDropdown.Item>
                                 <NavDropdown.Item href="/faq">ხშირად დასმული კითხვები</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">ბლოგი</NavDropdown.Item>
+                                <NavDropdown.Item href="/blog">ბლოგი</NavDropdown.Item>
                             </NavDropdown>
                         </li>
 

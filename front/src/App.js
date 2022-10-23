@@ -18,6 +18,7 @@ import Contact from "./pages/Contact";
 import CartItem from "./components/CartItem"
 import Calculator from "./components/Calculator";
 import FAQ from "./pages/FAQ";
+import Blog from "./pages/Blog";
 
 
 function App() {
@@ -42,6 +43,8 @@ function App() {
                     <Route path="/contact" element={<Contact/>} />
                     <Route path="/calculator" element={<Calculator/>} />
                     <Route path="/faq" element={<FAQ/>} />
+                    <Route path="/blog" element={<Blog/>} />
+
                 </Routes>
                 <Footer/>
             </div>
