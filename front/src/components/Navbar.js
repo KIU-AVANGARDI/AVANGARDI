@@ -87,7 +87,7 @@ export default function Navbar(props) {
                         <li>
                             <NavDropdown title={t("common:company")} id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/about-us">{t("common:aboutUs")}</NavDropdown.Item>
-                                <NavDropdown.Item href="/faq">{t("common:faq")}</NavDropdown.Item>
+                                <NavDropdown.Item href="/faqs">{t("common:faq")}</NavDropdown.Item>
                                 <NavDropdown.Item href="/blog">{t("common:blog")}</NavDropdown.Item>
                             </NavDropdown>
                         </li>

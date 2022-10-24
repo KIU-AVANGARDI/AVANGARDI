@@ -43,7 +43,7 @@ function App() {
                     <Route path="/contact" element={<Contact/>} />
                     <Route path="/calculator" element={<Calculator/>} />
                     <Route path="/blog" element={<Blog/>} />
-                    <Route path="/faq" element={<FAQS/>} />
+                    <Route path="/faqs" element={<FAQS/>} />
                 </Routes>
                 <Footer/>
             </div>
