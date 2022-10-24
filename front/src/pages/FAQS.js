@@ -4,9 +4,11 @@ import img from "../assets/images/faq.jpg";
 import React from "react";
 import {useEffect, useState} from "react";
 import APIService from "../APIService";
+import {useTranslation} from "react-i18next";
 
 
 export default function FAQS(){
+    const {t} = useTranslation()
     const [faqs, setFaqs] = useState([])
     useEffect(() => {
         APIService.GetFAQS().then((resp) => {
@@ -21,7 +23,7 @@ export default function FAQS(){
                 <img src={img}/>
                 <div className="vacancy-img-overlay">
                     <div className="hiring">
-                        ხშირად დასმული კითხვები
+                        {t("common:faq")}
                     </div>
                 </div>
             </div>

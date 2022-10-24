@@ -12,10 +12,10 @@ class Kitchen(models.Model):
     material = models.CharField(null=False, default='Material', max_length=50)
     note_ge = models.TextField(null=True, blank=True)
     note_en = models.TextField(null=True, blank=True)
-    image = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
-    image2 = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
-    image3 = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
-    image4 = models.ImageField(upload_to='images/', null=True, default = "media/default-product.jpeg")
+    image = models.ImageField(upload_to='images/', null=True, default = "default-product.jpeg")
+    image2 = models.ImageField(upload_to='images/', null=True, default = "default-product.jpeg")
+    image3 = models.ImageField(upload_to='images/', null=True, default = "default-product.jpeg")
+    image4 = models.ImageField(upload_to='images/', null=True, default = "default-product.jpeg")
 
     SINKS = 'SINKS'
     MIXERS = 'MIXERS'

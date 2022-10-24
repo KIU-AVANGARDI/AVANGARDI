@@ -37,7 +37,7 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser):
     email = models.EmailField(max_length=255,unique=True)
     firstName = models.CharField(max_length=255)
-    profilePicture = models.ImageField(upload_to='images/', null = True, default = "media/default-profile.jpeg")
+    profilePicture = models.ImageField(upload_to='images/', null = True, default = "default-profile.jpeg")
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     objects = CustomUserManager()

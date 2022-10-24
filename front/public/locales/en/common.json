@@ -15,5 +15,7 @@
   "contact": "Contact",
   "address" : "66 Peikarta St, T'bilisi, Georgia",
   "registrationError": "Registration failed",
-  "cartAdd": "This item has been successfully added to your card"
+  "cartAdd": "This item has been successfully added to your card",
+  "showMore": "Show More",
+  "showLess": "Show Less"
 }
