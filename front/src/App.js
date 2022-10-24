@@ -17,6 +17,7 @@ import {Shop} from "./pages/Shop";
 import Contact from "./pages/Contact";
 import CartItem from "./components/CartItem"
 import Calculator from "./components/Calculator";
+import Blog from "./pages/Blog";
 import FAQS from "./pages/FAQS";
 
 
@@ -41,6 +42,7 @@ function App() {
                     <Route path="/shop/:category/:pfrom/:pto/:kword" element={<Shop/>} />
                     <Route path="/contact" element={<Contact/>} />
                     <Route path="/calculator" element={<Calculator/>} />
+                    <Route path="/blog" element={<Blog/>} />
                     <Route path="/faq" element={<FAQS/>} />
                 </Routes>
                 <Footer/>

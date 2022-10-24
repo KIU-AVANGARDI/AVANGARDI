@@ -34,7 +34,8 @@
     aspect-ratio: 1/1;
     height: 100%;
     border-radius: 5px;
-    box-shadow: #e29f4f 0 1px 4px, #e29f4f 0 0 0 3px;}
+    box-shadow: #e29f4f 0 1px 4px, #e29f4f 0 0 0 3px;
+}
 
 .cart-item-image img{
     width: 100%;
