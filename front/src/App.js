@@ -17,8 +17,8 @@ import {Shop} from "./pages/Shop";
 import Contact from "./pages/Contact";
 import CartItem from "./components/CartItem"
 import Calculator from "./components/Calculator";
-import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
+import FAQS from "./pages/FAQS";
 
 
 function App() {
@@ -42,9 +42,8 @@ function App() {
                     <Route path="/shop/:category/:pfrom/:pto/:kword" element={<Shop/>} />
                     <Route path="/contact" element={<Contact/>} />
                     <Route path="/calculator" element={<Calculator/>} />
-                    <Route path="/faq" element={<FAQ/>} />
                     <Route path="/blog" element={<Blog/>} />
-
+                    <Route path="/faq" element={<FAQS/>} />
                 </Routes>
                 <Footer/>
             </div>

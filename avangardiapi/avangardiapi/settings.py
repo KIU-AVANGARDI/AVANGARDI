@@ -56,7 +56,9 @@ INSTALLED_APPS = [
     'material',
     'kitchen',
     'account',
-    'cart'
+    'cart',
+    'faq',
+    'blog'
 ]
 
 

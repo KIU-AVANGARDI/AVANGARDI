@@ -33,14 +33,14 @@ export default function CartItem({id, type, pairId}) {
     useEffect(() => {
         if (type === "kitchen") {
             APIService.GetKitchen(id).then((resp) => {
-                setName(resp.name)
+                setName(localStorage.getItem("lng") === "en" ? resp.name_en : resp.name_ge)
                 setImage(resp.image)
                 setPrice(resp.price)
             })
         }
         if (type === "material") {
             APIService.GetMaterial(id).then((resp) => {
-                setName(resp.name)
+                setName(localStorage.getItem("lng") === "en" ? resp.name_en : resp.name_ge)
                 setImage(resp.image)
                 setPrice(resp.price_square_meter)
             })

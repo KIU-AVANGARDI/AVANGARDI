@@ -19,6 +19,24 @@ export default class APIService {
         }).then((resp) => resp.json());
     }
 
+    static GetFAQS() {
+        return fetch("http://127.0.0.1:8000/faqs/faq", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((resp) => resp.json());
+    }
+
+    static GetBlogs() {
+        return fetch("http://127.0.0.1:8000/blogs/blog", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((resp) => resp.json());
+    }
+
     static GetFilteredMaterials(queryParameters) {
         return fetch(`http://127.0.0.1:8000/material/products/search?${queryParameters}`, {
             method: "GET",
