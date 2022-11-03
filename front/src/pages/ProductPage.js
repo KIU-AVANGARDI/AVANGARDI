@@ -180,7 +180,7 @@ const ProductPage = () => {
                             </div>
                         </div>
                         <div className="nonstandard">
-                            <Calculator setPrice1={setPrice111} setPrice2={setPrice222} type={types} setType={setTypes} />
+                            <Calculator setPrice11={setPrice111} setPrice22={setPrice222} type={types} setType={setTypes} />
                         </div>
                     </div>
 

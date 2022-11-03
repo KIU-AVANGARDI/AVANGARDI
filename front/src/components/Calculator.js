@@ -3,13 +3,14 @@ import '../styles/Calculator.css'
 import {useEffect} from "react";
 import APIService from "../APIService";
 
-export default function Calculator({setPrice1, setPrice2, type, setType}) {
+export default function Calculator({setPrice11, setPrice22, type, setType}) {
 
 
     const [filters, setFilters] = useState([])
     const [values, setValues] = useState([])
     const [prices, setPrices] = useState([])
-
+    const [price1, setPrice1] = useState(0)
+    const [price2, setPrice2] = useState(0)
     useEffect(() => {
         if (filters.length === 0) {
             APIService.GetNonStandardPriceStandardDecorFilters()
