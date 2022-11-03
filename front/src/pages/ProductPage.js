@@ -23,6 +23,8 @@ const ProductPage = () => {
     const [zoomed,setZoomed] = useState(false)
     const [quantity,setQuantity] = useState(1)
     const [currentImg,setCurrentImg] = useState(null)
+    const [prices, setPrices] = useState([{"unit_price":0},{"full_price":0}])
+    const [types, setTypes] = useState('standard')
 
     const notify = () => {
         toast.success(t("common:cartAdd"), {
@@ -102,8 +104,9 @@ const ProductPage = () => {
         ]
     };
 
-    const price = type === "kitchen" ? item.price:item.price_square_meter
-
+    const price1 = type === "kitchen" ? item.price:item.price_square_meter
+    const price = types === "standard" || prices.length === 0 ? price1 : prices[0].value
+    console.log(prices)
     return (
         <>
             <div className="single-item-box-container">
@@ -176,10 +179,8 @@ const ProductPage = () => {
                             </div>
                         </div>
                         <div className="nonstandard">
-                            <Calculator/>
-
+                            <Calculator prices={prices} setPrices={setPrices} type={types} setType={setTypes} />
                         </div>
-
                     </div>
 
                 </div>

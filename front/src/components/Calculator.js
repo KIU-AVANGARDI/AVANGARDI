@@ -3,14 +3,12 @@ import '../styles/Calculator.css'
 import {useEffect} from "react";
 import APIService from "../APIService";
 
-export default function Calculator() {
-    const [type, setType] = useState('standard')
+export default function Calculator({prices, setPrices, type, setType}) {
+
 
     const [filters, setFilters] = useState([])
     const [values, setValues] = useState([])
-    const [prices, setPrices] = useState([])
-    const [p1, setP1] = useState("მასალა ვერ მოიძებნა")
-    const [p2, setP2] = useState("მასალა ვერ მოიძებნა")
+
 
     useEffect(() => {
         if (filters.length === 0) {
@@ -38,12 +36,9 @@ export default function Calculator() {
                 }
             })
         console.log(prices)
-        if (prices.length > 0) {
-            setP1(prices[0].value)
-            setP2(prices[1].value)
-            document.getElementById('pp1').innerText="ერთეულის ფასი: "+prices[0].value
-            document.getElementById('pp2').innerText="ერთეულის ფასი: "+prices[1].value
-        }
+        // if (prices.length > 0) {
+        //
+        // }
     }
 
     return (
@@ -79,9 +74,6 @@ export default function Calculator() {
                         </div>
                     ))}
                     <button className="calculate" onClick={calculate}>დათვლა</button>
-
-                    <p id='pp1'>ერთეულის ფასი: {p1}</p>
-                    <p id='pp2'>სრული ფასი: {p2}</p>
                 </div>}
             </div>
         </div>
