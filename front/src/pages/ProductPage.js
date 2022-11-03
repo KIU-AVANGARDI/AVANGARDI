@@ -23,7 +23,9 @@ const ProductPage = () => {
     const [zoomed,setZoomed] = useState(false)
     const [quantity,setQuantity] = useState(1)
     const [currentImg,setCurrentImg] = useState(null)
-    const [prices, setPrices] = useState([{"unit_price":0},{"full_price":0}])
+    const [price_display, setPriceDisplay] = useState()
+    const [price111, setPrice111] = useState()
+    const [price222, setPrice222] = useState(0)
     const [types, setTypes] = useState('standard')
 
     const notify = () => {
@@ -105,8 +107,7 @@ const ProductPage = () => {
     };
 
     const price1 = type === "kitchen" ? item.price:item.price_square_meter
-    const price = types === "standard" || prices.length === 0 ? price1 : prices[0].value
-    console.log(prices)
+    const price = types === "standard" ? price1 : price222
     return (
         <>
             <div className="single-item-box-container">
@@ -179,7 +180,7 @@ const ProductPage = () => {
                             </div>
                         </div>
                         <div className="nonstandard">
-                            <Calculator prices={prices} setPrices={setPrices} type={types} setType={setTypes} />
+                            <Calculator setPrice1={setPrice111} setPrice2={setPrice222} type={types} setType={setTypes} />
                         </div>
                     </div>
 

@@ -3,12 +3,12 @@ import '../styles/Calculator.css'
 import {useEffect} from "react";
 import APIService from "../APIService";
 
-export default function Calculator({prices, setPrices, type, setType}) {
+export default function Calculator({setPrice1, setPrice2, type, setType}) {
 
 
     const [filters, setFilters] = useState([])
     const [values, setValues] = useState([])
-
+    const [prices, setPrices] = useState([])
 
     useEffect(() => {
         if (filters.length === 0) {
@@ -28,13 +28,14 @@ export default function Calculator({prices, setPrices, type, setType}) {
         setPrices([])
         values.map((e) => par += (e.key + "=" + e.value + "&&"))
         let pars = par.replaceAll(' ', '%20')
-        console.log(pars)
+        // console.log(pars)
         APIService.GetNonStandardPriceStandardDecor(pars)
             .then((resp) => {
                 for (const [key, value] of Object.entries(resp)) {
                     prices.push({key, value})
                 }
             })
+        // setPrice2(prices[1].value)
         console.log(prices)
         // if (prices.length > 0) {
         //
