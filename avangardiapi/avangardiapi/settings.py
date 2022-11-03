@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'account',
     'cart',
     'faq',
-    'blog'
+    'blog',
+    'ns_price'
 ]
 
 

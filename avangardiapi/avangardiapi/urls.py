@@ -11,7 +11,8 @@ urlpatterns = [
     path('auth/',include('account.urls')),
     path('cart/',include('cart.urls')),
     path('faqs/',include('faq.urls')),
-    path('blogs/',include('blog.urls'))
+    path('blogs/',include('blog.urls')),
+    path('ns-price/',include('ns_price.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

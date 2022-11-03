@@ -57,3 +57,6 @@ class SearchMaterialView(generics.ListAPIView):
             except:
                 pass
         return queryset
+
+
+

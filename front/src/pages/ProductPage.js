@@ -177,6 +177,7 @@ const ProductPage = () => {
                         </div>
                         <div className="nonstandard">
                             <Calculator/>
+
                         </div>
 
                     </div>

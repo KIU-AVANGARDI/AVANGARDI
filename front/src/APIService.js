@@ -46,6 +46,24 @@ export default class APIService {
         }).then((resp) => resp.json());
     }
 
+    static GetNonStandardPriceStandardDecor(queryParameters) {
+        return fetch(`http://127.0.0.1:8000/ns-price/standard-decor?${queryParameters}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((resp) => resp.json());
+    }
+
+    static GetNonStandardPriceStandardDecorFilters() {
+        return fetch(`http://127.0.0.1:8000/ns-price/standard-decor-filters`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((resp) => resp.json());
+    }
+
     static GetFilteredKitchen(queryParameters) {
         return fetch(`http://127.0.0.1:8000/kitchen/products/search?${queryParameters}`, {
             method: "GET",
